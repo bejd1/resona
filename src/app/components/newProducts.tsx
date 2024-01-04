@@ -4,17 +4,17 @@ import img from "../../img/about.jpg";
 
 const NewProducts = () => {
   return (
-    <div className="my-12 px-24 w-full">
+    <div className="py-12 px-4 md:px-24 w-full bg-[#eff0f0]">
       <h1 className="flex place-items-start text-4xl font-extrabold mb-2">
         Nowa linia produktów
       </h1>
       <div className="w-full h-[1px] bg-black mb-20"></div>
-      <div className="flex justify-around items-center">
+      <div className="flex-col md:flex-row gap-10 flex justify-around items-center">
         <div className="w-5/6 md:w-[500px]">
           <Image src={img} alt="Picture of the author" />
         </div>
-        <div className="w-4/5 sm:w-80 md:w-2/5">
-          <p>
+        <div className="flex flex-col w-4/5 sm:w-80 md:w-2/5">
+          <p className="tracking-wide">
             Poznaj nasz nowy zestaw wieżowy Unitra. Zainspirowani urządzeniami
             ze złotego okresu w historii naszej marki, stworzyliśmy
             bezkompromisowy, kompletny zestaw Hi-Fi stereo. Stworzyliśmy go z
@@ -25,7 +25,7 @@ const NewProducts = () => {
             głośników stanowią przygodę życia.
           </p>
           <button className="bg-black px-4 py-3 font-poppins text-white rounded-md mt-8">
-            PRODUKTY
+            Products
           </button>
         </div>
       </div>

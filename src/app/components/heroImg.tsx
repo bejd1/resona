@@ -27,7 +27,7 @@ const HeroImg = () => {
     };
   }, []);
 
-  const maxScroll = 200;
+  const maxScroll = 201;
 
   const translateY = Math.min(scrollY, maxScroll);
   const isMobile = windowWidth < 480;

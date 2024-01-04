@@ -4,11 +4,11 @@ import img from "../../img/about.jpg";
 
 const MainAboutUs = () => {
   return (
-    <div className="flex-col md:flex-row flex gap-10 pl-8 md:px-16 lg:28 my-12 w-full justify-around">
-      <div className="w-4/5 sm:w-80 md:w-96 ">
+    <div className="flex-col md:flex-row flex gap-10 pl-8 md:px-16 lg:28 my-12 w-full justify-center md:justify-around">
+      <div className="w-4/5 sm:w-80 md:w-96">
         <h2 className="text-2xl font-medium">RESONA</h2>
         <h1 className="text-4xl my-2 font-black">Piękno polskiej inżynierii</h1>
-        <p>
+        <p className="tracking-wide">
           Inżynieria jest dla nas wzorcem ponadczasowego piękna. Nasze
           urządzenia są piękne, ponieważ są zaprojektowane zgodnie z najlepszymi
           praktykami inżynierii od projektu począwszy, a na najmniejszym detalu
