@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
+import BurgerBtn from "./burgerBtn";
 
 const Navbar = () => {
   const currentPath = usePathname();
@@ -19,12 +20,14 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex space-x-6 h-16 px-48 pt-16 pb-8 items-center justify-between">
+    <div className="flex space-x-6 h-16 px-6 sm:px-12 lg:px-24 py-16 items-center justify-between">
       <div className="flex gap-10">
         <Link className="flex items-center text-xl" href="/">
-          <p className="font-black font-poppins text-3xl">RESONA</p>
+          <p className="font-black font-poppins mr-4 text-xl sm:text-3xl">
+            RESONA
+          </p>
         </Link>
-        <ul className="flex gap-10 items-center">
+        <ul className="hidden lg:flex gap-10 items-center">
           {links.map((link) => {
             return (
               <li key={link.href}>
@@ -42,9 +45,10 @@ const Navbar = () => {
           })}
         </ul>
       </div>
-      <button className="bg-black px-4 py-3 font-poppins text-white rounded-md">
+      <button className="hidden lg:block bg-black px-4 py-3 font-poppins text-white rounded-md">
         SIGN UP
       </button>
+      <BurgerBtn />
     </div>
   );
 };
