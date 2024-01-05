@@ -3,14 +3,18 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
-import BurgerBtn from "./burgerBtn";
 import { TbHexagonLetterR } from "react-icons/tb";
 import { CiShoppingCart } from "react-icons/ci";
+import { DrawerDemo } from "@/components/menu";
 
+interface linksI {
+  label: string;
+  href: string;
+}
 const Navbar = () => {
   const currentPath = usePathname();
 
-  const links = [
+  const links: linksI[] = [
     {
       label: "PRODUCTS",
       href: "/products",
@@ -50,14 +54,14 @@ const Navbar = () => {
           })}
         </ul>
       </div>
-      <div className="flex items-center justyfy-center gap-1 md:gap-4">
+      <div className="flex items-center justyfy-center gap-2 md:gap-4">
         <div className="text-[25px] md:text-[35px] cursor-pointer">
           <CiShoppingCart />
         </div>
         <button className="hidden lg:block bg-black px-4 py-3 font-poppins text-white rounded-md">
           SIGN UP
         </button>
-        <BurgerBtn />
+        <DrawerDemo />
       </div>
     </div>
   );

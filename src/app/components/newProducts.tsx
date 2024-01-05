@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import img from "../../img/about.jpg";
+import Link from "next/link";
 
 const NewProducts = () => {
   return (
@@ -24,9 +25,11 @@ const NewProducts = () => {
             muzyki jak my, dla których przyjemność słuchania i emocje płynące z
             głośników stanowią przygodę życia.
           </p>
-          <button className="bg-black px-4 py-3 font-poppins text-white rounded-md mt-8">
-            Products
-          </button>
+          <Link href="/products">
+            <button className="bg-black px-4 py-3 font-poppins text-white rounded-md mt-8">
+              Products
+            </button>
+          </Link>
         </div>
       </div>
     </div>

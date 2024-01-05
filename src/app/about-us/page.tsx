@@ -9,7 +9,7 @@ const AboutUs = () => {
         O nas
       </h1>
       <div className="w-full h-[1px] bg-black mb-20"></div>
-      <div className="flex md:grid grid-cols-2 gap-10 flex-row">
+      <div className="flex lg:grid grid-cols-2 gap-10 flex-col">
         <div className="tracking-wide">
           <h3 className="text-2xl font-extrabold mb-4">
             Historia Firmy "Resona"
@@ -49,7 +49,7 @@ const AboutUs = () => {
       </div>
       <h1 className="text-4xl font-extrabold mt-12 mb-2">Wartości</h1>
       <div className="w-full h-[1px] bg-black mb-12"></div>
-      <div className="flex gap-8 justify-center">
+      <div className="flex gap-10 justify-center flex-col lg:flex-row">
         <div className="flex flex-col">
           <h3 className="mb-1 text-xl font-bold">INNOWACYJNOŚĆ</h3>
           <p className="mb-2">
@@ -83,7 +83,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <p className="my-8">
+      <p className="my-8 font-extrabold">
         Resona - Twoje okno do nowoczesnej elektroniki, gdzie innowacje
         spotykają się z solidnością.
       </p>
