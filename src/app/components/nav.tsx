@@ -58,9 +58,11 @@ const Navbar = () => {
         <div className="text-[25px] md:text-[35px] cursor-pointer">
           <CiShoppingCart />
         </div>
-        <button className="hidden lg:block bg-black px-4 py-3 font-poppins text-white rounded-md">
-          SIGN UP
-        </button>
+        <Link href="/login">
+          <button className="hidden lg:block bg-black px-4 py-3 font-poppins text-white rounded-md hover:text-gray-400 ease-in-out duration-300">
+            SIGN UP
+          </button>
+        </Link>
         <DrawerDemo />
       </div>
     </div>

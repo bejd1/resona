@@ -9,7 +9,7 @@ const NewProducts = () => {
       <h1 className="flex place-items-start text-4xl font-extrabold mb-2">
         Nowa linia produktów
       </h1>
-      <div className="w-full h-[1px] bg-black mb-20"></div>
+      <div className="w-full h-[1px] bg-black mb-16"></div>
       <div className="flex-col md:flex-row gap-10 flex justify-around items-center">
         <div className="w-5/6 md:w-[500px]">
           <Image src={img} alt="Picture of the author" />
@@ -26,7 +26,7 @@ const NewProducts = () => {
             głośników stanowią przygodę życia.
           </p>
           <Link href="/products">
-            <button className="bg-black px-4 py-3 font-poppins text-white rounded-md mt-8">
+            <button className="bg-black px-4 py-3 font-poppins text-white rounded-md mt-8 hover:text-gray-400 ease-in-out duration-300">
               Products
             </button>
           </Link>

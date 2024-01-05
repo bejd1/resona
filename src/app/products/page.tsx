@@ -9,7 +9,7 @@ const Products = () => {
       <h1 className="flex place-items-start text-4xl font-extrabold mb-2">
         Nasze produkty
       </h1>
-      <div className="w-full h-[1px] bg-black mb-20"></div>
+      <div className="w-full h-[1px] bg-black mb-16"></div>
       <div className="flex md:grid flex-col lg:flex-wrap gap-10 cursor-pointer grid-cols-2  lg:px-4">
         <Link href="/products/id">
           <div className="tracking-wider hover:underline w-full">

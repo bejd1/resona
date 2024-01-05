@@ -15,7 +15,7 @@ const Newsletter = () => {
           nowych produktów, promocji oraz aktualnych wydarzeń.
         </p>
         <InputWithLabel />
-        <button className="bg-black px-4 py-2 font-poppins text-white rounded-md mt-4">
+        <button className="bg-black px-4 py-2 font-poppins text-white rounded-md mt-4 hover:text-gray-400 ease-in-out duration-300">
           Zapisz
         </button>
       </div>

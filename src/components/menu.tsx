@@ -20,6 +20,10 @@ interface linksI {
 export function DrawerDemo() {
   const links: linksI[] = [
     {
+      label: "LOGIN",
+      href: "/login",
+    },
+    {
       label: "HOME",
       href: "/",
     },
@@ -57,13 +61,13 @@ export function DrawerDemo() {
         <DrawerFooter>
           <div className="flex items-center justify-center gap-5">
             <Link
-              className="flex items-center text-xl"
+              className="flex items-center text-xl hover:text-gray-800 ease-in-out duration-300"
               href="https://www.linkedin.com/in/filip-bajdan-a6393b273/"
             >
               <FaLinkedin />
             </Link>
             <Link
-              className="flex items-center text-xl"
+              className="flex items-center text-xl hover:text-gray-800 ease-in-out duration-300"
               href="https://github.com/bejd1"
             >
               <FaGithub />
