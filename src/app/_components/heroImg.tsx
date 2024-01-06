@@ -1,5 +1,6 @@
 "use client";
 
+// Importing necessary dependencies
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import img from "../../img/bigger.jpg";
@@ -17,10 +18,12 @@ const HeroImg = () => {
       setWindowWidth(window.innerWidth);
     };
 
+    setWindowWidth(window.innerWidth);
+
+    // Adding event listeners
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
-    // Cleanup event listeners on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
@@ -30,7 +33,9 @@ const HeroImg = () => {
   const maxScroll = 201;
 
   const translateY = Math.min(scrollY, maxScroll);
+
   const isMobile = windowWidth < 480;
+
   const transformStyle = isMobile ? "none" : `translateY(-${translateY}px)`;
 
   return (
@@ -39,6 +44,8 @@ const HeroImg = () => {
         <Image
           className="w-full h-full transform transition-transform sm:transform-none ease-out duration-300"
           style={{ transform: transformStyle }}
+          width={0}
+          height={0}
           src={img}
           alt="Picture of the author"
         />

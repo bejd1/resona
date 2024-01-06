@@ -44,7 +44,7 @@ const AboutUs = () => {
           </p>
         </div>
         <div>
-          <Image src={img} alt="Picture of the author" />
+          <Image src={img} width={0} height={0} alt="Picture of the author" />
         </div>
       </div>
       <h1 className="text-4xl font-extrabold mt-12 mb-2">Wartości</h1>

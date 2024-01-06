@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import img from "../../../img/kevin-woblick-LRamvPjq5Ho-unsplash (1).jpg";
 import { RadioGroupDemo } from "@/components/radioGroup";
+import { Button } from "@/components/ui/button";
 
 const page = () => {
   return (
@@ -32,9 +33,7 @@ const page = () => {
         </p>
         <RadioGroupDemo />
         <p className="text-2xl font-medium">PLN 14.999</p>
-        <button className="bg-black px-4 py-3 font-poppins text-white rounded-md mt-4 hover:text-gray-400 ease-in-out duration-300">
-          Dodaj do koszyka
-        </button>
+        <Button className=" bg-black h-11 mt-3">Add to cart</Button>
       </div>
     </div>
   );

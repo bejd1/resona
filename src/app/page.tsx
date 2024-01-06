@@ -1,7 +1,7 @@
-import HeroImg from "./components/heroImg";
-import MainAboutUs from "./components/mainAboutUs";
-import NewProducts from "./components/newProducts";
-import Newsletter from "./components/newsletter";
+import HeroImg from "./_components/heroImg";
+import MainAboutUs from "./_components/mainAboutUs";
+import NewProducts from "./_components/newProducts";
+import Newsletter from "./_components/newsletter";
 
 export default function Home() {
   return (

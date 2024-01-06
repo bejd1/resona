@@ -21,7 +21,7 @@ const MainAboutUs = () => {
         </p>
       </div>
       <div className="w-5/6 md:w-[500px]">
-        <Image src={img} alt="Picture of the author" />
+        <Image src={img} width={0} height={0} alt="Picture of the author" />
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { TbHexagonLetterR } from "react-icons/tb";
 import { CiShoppingCart } from "react-icons/ci";
 import { DrawerDemo } from "@/components/menu";
+import { Button } from "@/components/ui/button";
 
 interface linksI {
   label: string;
@@ -37,9 +38,9 @@ const Navbar = () => {
           </div>
         </Link>
         <ul className="hidden lg:flex gap-10 items-center">
-          {links.map((link) => {
+          {links.map((link, index) => {
             return (
-              <li key={link.href}>
+              <li key={index}>
                 <Link
                   className="text-xl font-medium font-poppins text-[#242323]"
                   // className={`${
@@ -56,12 +57,14 @@ const Navbar = () => {
       </div>
       <div className="flex items-center justyfy-center gap-2 md:gap-4">
         <div className="text-[25px] md:text-[35px] cursor-pointer">
-          <CiShoppingCart />
+          <Link href="cart">
+            <CiShoppingCart />
+          </Link>
         </div>
         <Link href="/login">
-          <button className="hidden lg:block bg-black px-4 py-3 font-poppins text-white rounded-md hover:text-gray-400 ease-in-out duration-300">
+          <Button className=" bg-black hidden h-10 font-semibold lg:block">
             SIGN UP
-          </button>
+          </Button>
         </Link>
         <DrawerDemo />
       </div>

@@ -10,7 +10,7 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
-import BurgerBtn from "@/app/components/burgerBtn";
+import BurgerBtn from "@/app/_components/burgerBtn";
 
 interface linksI {
   label: string;
@@ -45,13 +45,15 @@ export function DrawerDemo() {
         <div className="flex items-center justify-center h-full">
           <DrawerHeader>
             <div className="flex flex-col items-center gap-10">
-              {links.map((link) => {
+              {links.map((link, index) => {
                 return (
-                  <Link href={link.href}>
-                    <DrawerClose>
-                      <p className="text-2xl text-center">{link.label}</p>
-                    </DrawerClose>
-                  </Link>
+                  <div key={index}>
+                    <Link href={link.href}>
+                      <DrawerClose>
+                        <p className="text-2xl text-center">{link.label}</p>
+                      </DrawerClose>
+                    </Link>
+                  </div>
                 );
               })}
             </div>

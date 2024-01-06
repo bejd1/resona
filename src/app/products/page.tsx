@@ -13,7 +13,7 @@ const Products = () => {
       <div className="flex md:grid flex-col lg:flex-wrap gap-10 cursor-pointer grid-cols-2  lg:px-4">
         <Link href="/products/id">
           <div className="tracking-wider hover:underline w-full">
-            <Image src={img} alt="Picture of the author" />
+            <Image src={img} width={0} height={0} alt="Picture of the author" />
             <h3 className="font-bold text-xl py-1">WSH-499</h3>
             <h4 className="text-lg">
               Wzmacniacz zintegrowany stereo o konstrukcji dual-mono

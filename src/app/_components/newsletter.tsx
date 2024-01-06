@@ -1,7 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import img from "../../img/vaido-un1RE76gHDg-unsplash.jpg";
-import { InputWithLabel } from "@/components/Input";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const Newsletter = () => {
   return (
@@ -14,13 +15,15 @@ const Newsletter = () => {
           Subskrybuj nasz newsletter, aby otrzymywać bieżące informacje na temat
           nowych produktów, promocji oraz aktualnych wydarzeń.
         </p>
-        <InputWithLabel />
-        <button className="bg-black px-4 py-2 font-poppins text-white rounded-md mt-4 hover:text-gray-400 ease-in-out duration-300">
-          Zapisz
-        </button>
+        <Input
+          className="h-11"
+          placeholder="youremail@email.com"
+          type="email"
+        />
+        <Button className=" bg-black h-11 mt-3">Subscribe</Button>
       </div>
       <div className="w-5/6 md:w-[500px]">
-        <Image src={img} alt="Picture" />
+        <Image src={img} width={0} height={0} alt="Picture" />
       </div>
     </div>
   );
