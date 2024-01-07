@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 const page = () => {
   return (
-    <div className="mt-12 mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
+    <div className=" mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
       <div className="w-5/6 md:w-[500px]">
         <Image
           className="w-full"

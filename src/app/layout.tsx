@@ -23,12 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <div className="sticky top-0 z-[100] bg-white">
+          {" "}
           <Navbar />
         </div>
         {children}
-        <div className="stick bottom-0">
-          <Footer />
-        </div>
+        <Footer />
       </body>
     </html>
   );

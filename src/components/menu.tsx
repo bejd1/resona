@@ -11,6 +11,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import BurgerBtn from "@/app/_components/burgerBtn";
+import { Divider } from "@mui/material";
 
 interface linksI {
   label: string;
@@ -59,17 +60,17 @@ export function DrawerDemo() {
             </div>
           </DrawerHeader>
         </div>
-        <div className="w-full h-[1px] bg-black mb-2"></div>
+        <Divider />
         <DrawerFooter>
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center gap-6">
             <Link
-              className="flex items-center text-xl hover:text-gray-800 ease-in-out duration-300"
+              className="flex items-center text-2xl hover:text-gray-800 ease-in-out duration-300"
               href="https://www.linkedin.com/in/filip-bajdan-a6393b273/"
             >
               <FaLinkedin />
             </Link>
             <Link
-              className="flex items-center text-xl hover:text-gray-800 ease-in-out duration-300"
+              className="flex items-center text-2xl hover:text-gray-800 ease-in-out duration-300"
               href="https://github.com/bejd1"
             >
               <FaGithub />

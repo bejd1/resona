@@ -6,7 +6,7 @@ export function RegisterCard() {
   return (
     <Card className="w-5/6 sm:w-[420px] mb-32">
       <CardHeader>
-        <CardTitle className="text-center text-2xl">
+        <CardTitle className="text-center text-2xl mb-1">
           Create a new account
         </CardTitle>
         <RegisterForm />

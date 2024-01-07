@@ -1,6 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import img from "../../img/big.jpg";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resona - About us",
+};
 
 const AboutUs = () => {
   return (

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import React from "react";
-import { usePathname } from "next/navigation";
 import { TbHexagonLetterR } from "react-icons/tb";
 import { CiShoppingCart } from "react-icons/ci";
 import { DrawerDemo } from "@/components/menu";
@@ -13,8 +12,6 @@ interface linksI {
   href: string;
 }
 const Navbar = () => {
-  const currentPath = usePathname();
-
   const links: linksI[] = [
     {
       label: "PRODUCTS",
@@ -43,9 +40,6 @@ const Navbar = () => {
               <li key={index}>
                 <Link
                   className="text-xl font-medium font-poppins text-[#242323]"
-                  // className={`${
-                  //   link.href !== currentPath ? "text-red-600" : "text-red-200"
-                  // } hover:text-zinc-800 transition-colors`}
                   href={link.href}
                 >
                   {link.label.toUpperCase()}

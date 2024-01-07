@@ -2,6 +2,11 @@ import React from "react";
 import Image from "next/image";
 import img from "../../img/big.jpg";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resona - Products",
+};
 
 const Products = () => {
   return (

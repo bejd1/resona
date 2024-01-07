@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useTransition } from "react";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import {
@@ -15,15 +15,20 @@ import {
 import { LoginSchema } from "@/schemas";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import Divider from "@mui/material/Divider";
-// import { FormSuccess } from "./formSuccess";
-// import { FormError } from "./formError";
+import { FormSuccess } from "./formSuccess";
+import { FormError } from "./formError";
+import { login } from "@/actions/login";
 
 const LoginForm = () => {
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
+  const [isPending, startTransition] = useTransition();
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
@@ -33,9 +38,16 @@ const LoginForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    console.log(values);
-  };
+    setError("");
+    setSuccess("");
 
+    startTransition(() => {
+      login(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.success);
+      });
+    });
+  };
   return (
     <Form {...form}>
       <form
@@ -50,6 +62,7 @@ const LoginForm = () => {
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input
+                  disabled={isPending}
                   placeholder="youremail@email.com"
                   type="email"
                   {...field}
@@ -66,7 +79,12 @@ const LoginForm = () => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="••••••••" type="password" {...field} />
+                <Input
+                  disabled={isPending}
+                  placeholder="••••••••"
+                  type="password"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -83,20 +101,32 @@ const LoginForm = () => {
             </Link>
           </FormLabel>
         </FormItem>
-        <Button className="py-5 mt-1 bg-black" type="submit">
-          Submit
+        <Button
+          disabled={isPending}
+          className="py-5 mt-1 bg-black"
+          type="submit"
+        >
+          Login
         </Button>
         <FormItem className="text-center my-1 divide-y divide-blue-200">
           <Divider>or</Divider>
         </FormItem>
+        <FormSuccess message={success} />
+        <FormError message={error} />
       </form>
       <FormDescription className="flex gap-2">
-        <Button className="bg-black w-full py-5">
-          <FaGithub className="mr-2" />
+        <Button
+          variant="outline"
+          className=" w-full py-5 text-black font-extrabold"
+        >
+          <FaGithub className="mr-1" />
           Github
         </Button>
-        <Button className="bg-black w-full py-5">
-          <FaGoogle className="mr-2" />
+        <Button
+          variant="outline"
+          className="bg-white w-full py-5 text-black font-extrabold"
+        >
+          <FcGoogle className="mr-1" />
           Google
         </Button>
       </FormDescription>

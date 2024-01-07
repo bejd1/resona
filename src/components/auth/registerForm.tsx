@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useTransition } from "react";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
 import {
@@ -12,29 +12,42 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { LoginSchema } from "@/schemas";
+import { RegisterSchema } from "@/schemas";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Divider } from "@mui/material";
-import { FaGithub, FaGoogle } from "react-icons/fa";
-// import { FaGithub } from "react-icons/fa";
-// import { FaGoogle } from "react-icons/fa";
-// import { FormSuccess } from "./formSuccess";
-// import { FormError } from "./formError";
+import { FaGithub } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { FormSuccess } from "./formSuccess";
+import { FormError } from "./formError";
+import { register } from "@/actions/register";
 
 const RegisterForm = () => {
-  const form = useForm<z.infer<typeof LoginSchema>>({
-    resolver: zodResolver(LoginSchema),
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
+  const [isPending, startTransition] = useTransition();
+
+  const form = useForm<z.infer<typeof RegisterSchema>>({
+    resolver: zodResolver(RegisterSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
     },
   });
 
-  const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    console.log(values);
+  const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    setError("");
+    setSuccess("");
+
+    startTransition(() => {
+      register(values).then((data) => {
+        setError(data.error);
+        setSuccess(data.success);
+      });
+    });
   };
 
   return (
@@ -45,12 +58,30 @@ const RegisterForm = () => {
       >
         <FormField
           control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>First name</FormLabel>
+              <FormControl>
+                <Input
+                  disabled={isPending}
+                  placeholder="Mark Zuckerberg"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
                 <Input
+                  disabled={isPending}
                   placeholder="youremail@email.com"
                   type="email"
                   {...field}
@@ -67,7 +98,12 @@ const RegisterForm = () => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="••••••••" type="password" {...field} />
+                <Input
+                  disabled={isPending}
+                  placeholder="••••••••"
+                  type="password"
+                  {...field}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -84,20 +120,33 @@ const RegisterForm = () => {
             </Link>
           </FormLabel>
         </FormItem>
-        <Button className="py-5 mt-1 bg-black" type="submit">
-          Submit
+
+        <Button
+          disabled={isPending}
+          className="py-5 mt-1 bg-black"
+          type="submit"
+        >
+          Create account
         </Button>
         <FormItem className="text-center my-1 divide-y divide-blue-200">
           <Divider>or</Divider>
         </FormItem>
+        <FormSuccess message={success} />
+        <FormError message={error} />
       </form>
       <FormDescription className="flex gap-2">
-        <Button className="bg-black w-full py-5">
-          <FaGithub className="mr-2" />
+        <Button
+          variant="outline"
+          className=" w-full py-5 text-black font-extrabold"
+        >
+          <FaGithub className="mr-1" />
           Github
         </Button>
-        <Button className="bg-black w-full py-5">
-          <FaGoogle className="mr-2" />
+        <Button
+          variant="outline"
+          className="bg-white w-full py-5 text-black font-extrabold"
+        >
+          <FcGoogle className="mr-1" />
           Google
         </Button>
       </FormDescription>
