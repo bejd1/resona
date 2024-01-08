@@ -1,3 +1,5 @@
+// User auth schema
+
 // prisma/schema.prisma
 datasource db {
   provider  = "postgresql"
@@ -36,4 +38,22 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+}
+
+
+// Products schema
+
+datasource mongo {
+  provider = "mongodb"
+  url      = env("MONGODB_URL")
+}
+
+model Product {
+  id            String    @id @default(cuid())
+  title         String
+  model         String
+  describe      String
+  prize         Float
+  colorVariant  String[]
+  image         String?
 }
