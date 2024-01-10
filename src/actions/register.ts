@@ -3,7 +3,7 @@
 import * as z from "zod";
 import { RegisterSchema } from "@/schemas";
 import bcrypt from "bcrypt";
-import { db } from "../../lib/db";
+import db from "../../lib/db";
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   // Validate input using the RegisterSchema

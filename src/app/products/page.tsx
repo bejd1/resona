@@ -2,13 +2,15 @@ import React from "react";
 import Image from "next/image";
 import img from "../../img/big.jpg";
 import Link from "next/link";
-import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Resona - Products",
-};
+// async function getData() {
+//   const data = await .product.findMany();
+//   return data;
+// }
 
-const Products = () => {
+const Products = async () => {
+  // const data = await getData();
+
   return (
     <div className="py-12 px-6 md:px-24 w-full">
       <h1 className="flex place-items-start text-4xl font-extrabold mb-2">
