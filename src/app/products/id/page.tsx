@@ -3,10 +3,11 @@ import Image from "next/image";
 import img from "../../../img/kevin-woblick-LRamvPjq5Ho-unsplash (1).jpg";
 import { RadioGroupDemo } from "@/components/radioGroup";
 import { Button } from "@/components/ui/button";
+import EditProductModal from "@/app/_components/editModal";
 
 const page = () => {
   return (
-    <div className=" mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
+    <div className="mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
       <div className="w-5/6 md:w-[500px]">
         <Image
           className="w-full"
@@ -32,7 +33,10 @@ const page = () => {
           wejścia zbalansowane.
         </p>
         <RadioGroupDemo />
-        <p className="text-2xl font-medium">PLN 14.999</p>
+        <div className="flex justify-between">
+          <p className="text-2xl font-medium">PLN 14.999</p>
+          <EditProductModal />
+        </div>
         <Button className=" bg-black h-11 mt-3">Add to cart</Button>
       </div>
     </div>

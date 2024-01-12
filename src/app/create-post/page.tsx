@@ -2,6 +2,7 @@ import React from "react";
 import prisma from "../../../lib/db";
 import { revalidatePath } from "next/cache";
 import { Divider } from "@mui/material";
+import { deleteItem } from "@/actions/post";
 
 async function getData() {
   const data = await prisma.product.findMany();
@@ -26,6 +27,24 @@ async function create(formData: FormData) {
       prize: input4,
       colorVariant: [],
       image: input5,
+    },
+  });
+
+  revalidatePath("/");
+}
+
+async function edit(formData: FormData) {
+  "use server";
+
+  const input = formData.get("input") as string;
+  const inputId = formData.get("inputId") as string;
+
+  await prisma.product.update({
+    where: {
+      id: inputId,
+    },
+    data: {
+      title: input,
     },
   });
 
@@ -69,22 +88,41 @@ const page = async () => {
         </button>
       </form>
       <div>
-        <ul>
-          {data.map((d) => {
-            const { title, model, description, prize, image } = d;
-            return (
-              <>
-                <Divider className="my-8" />
+        {data.map((d) => {
+          const { title, model, description, prize, image, id } = d;
+          return (
+            <div key={id}>
+              <Divider className="my-8" />
+              <input type="hidden" name="inputId" />
+              <div>{id}</div>
+              <div>{title}</div>
+              <div>{model}</div>
+              <div>{description}</div>
+              <div>{prize}</div>
+              <div>{image}</div>
+            </div>
+          );
+        })}
+        <div className="mt-5 flex flex-col gap-y-2">
+          {data.map((todo) => (
+            <form key={todo.id} className="flex" action={edit}>
+              <input type="hidden" name="inputId" value={todo.id} />
+              <input
+                type="text"
+                name="input"
+                defaultValue={todo.title}
+                className="border p-1"
+              />
 
-                <li>{title}</li>
-                <li>{model}</li>
-                <li>{description}</li>
-                <li>{prize}</li>
-                <li>{image}</li>
-              </>
-            );
-          })}
-        </ul>
+              <button type="submit" className="border bg-green-400 ">
+                Save
+              </button>
+              <button formAction={deleteItem} className="border bg-red-400">
+                Delete
+              </button>
+            </form>
+          ))}
+        </div>
       </div>
     </div>
   );
