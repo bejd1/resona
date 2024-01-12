@@ -17,6 +17,7 @@ export async function create(formData: FormData) {
     const model = formData.get("model") as string;
     const description = formData.get("description") as string;
     const prize = parseFloat(formData.get("prize") as string);
+    const colorVariant = formData.get("colorVariant") as string;
     const image = formData.get("image") as string;
 
     await prisma.product.create({
@@ -25,7 +26,7 @@ export async function create(formData: FormData) {
         model: model,
         description: description,
         prize: prize,
-        colorVariant: [],
+        colorVariant: [colorVariant],
         image: image,
       },
     });
@@ -73,5 +74,5 @@ export async function deleteItem(formData: FormData) {
     },
   });
 
-  revalidatePath("/");
+  revalidatePath("/products");
 }

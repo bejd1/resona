@@ -11,12 +11,14 @@ import {
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import EditProductForm from "./editProductForm";
 import DeleteProduct from "./deleteProduct";
+import { getData } from "@/actions/post";
 
 type Props = {
   handleClose: () => void;
 };
 
 export function EditProduct({ handleClose }: Props) {
+  getData();
   return (
     <Card className="relative">
       <IoIosCloseCircleOutline

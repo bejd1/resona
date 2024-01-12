@@ -5,7 +5,7 @@ import { RadioGroupDemo } from "@/components/radioGroup";
 import { Button } from "@/components/ui/button";
 import EditProductModal from "@/app/_components/editModal";
 
-const page = () => {
+const Products = async () => {
   return (
     <div className="mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
       <div className="w-5/6 md:w-[500px]">
@@ -43,4 +43,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Products;

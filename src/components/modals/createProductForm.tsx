@@ -4,13 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import { create } from "@/actions/post";
 import { Textarea } from "../ui/textarea";
-import { CardFooter } from "../ui/card";
 
-type Props = {
-  handleClose: () => void;
-};
-
-const CreateProductForm = ({ handleClose }: Props) => {
+const CreateProductForm = () => {
   return (
     <div>
       <form action={create}>
@@ -50,11 +45,7 @@ const CreateProductForm = ({ handleClose }: Props) => {
               required
             />
 
-            <Button
-              type="submit"
-              onClick={handleClose}
-              className="bg-black w-full"
-            >
+            <Button type="submit" className="bg-black w-full">
               Create
             </Button>
           </div>

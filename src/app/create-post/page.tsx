@@ -4,6 +4,14 @@ import { revalidatePath } from "next/cache";
 import { Divider } from "@mui/material";
 import { deleteItem } from "@/actions/post";
 
+type dataT = {
+  id: string;
+  title: string;
+  model: string;
+  prize: number;
+  image: string;
+};
+
 async function getData() {
   const data = await prisma.product.findMany();
 
