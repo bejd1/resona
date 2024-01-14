@@ -13,6 +13,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
   });
 
   const img = productData?.image?.toString();
+
   return (
     <div
       key={productData?.id}
@@ -33,7 +34,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
         <RadioGroupDemo />
         <div className="flex justify-between">
           <p className="text-2xl font-medium">PLN {productData?.prize}</p>
-          <EditProductModal id={productData?.id} />
+          <EditProductModal id={productData?.id} productData={productData} />
         </div>
         <Button className="bg-black h-11 mt-3">Add to cart</Button>
       </div>

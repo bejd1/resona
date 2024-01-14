@@ -7,7 +7,12 @@ const DeleteProduct = ({ id }: { id: string | undefined }) => {
     <div>
       <form action={deleteItem}>
         <input type="hidden" name="inputId" value={id} />
-        <Button className="bg-red-600 hover:bg-red-500">Delete</Button>
+        <Button
+          formAction={deleteItem}
+          className="bg-red-600 hover:bg-red-500 w-full"
+        >
+          Delete
+        </Button>
       </form>
     </div>
   );

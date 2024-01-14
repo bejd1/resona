@@ -3,6 +3,9 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "./_components/nav";
 import Footer from "./_components/footer";
+import favicon from "./favicon.ico";
+
+const newIcon = favicon.src;
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,9 +24,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href={newIcon} />
+      </head>
       <body className={poppins.className}>
         <div className="sticky top-0 z-[100] bg-white">
-          {" "}
           <Navbar />
         </div>
         {children}

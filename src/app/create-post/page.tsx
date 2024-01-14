@@ -45,6 +45,7 @@ async function edit(formData: FormData) {
   "use server";
 
   const input = formData.get("input") as string;
+  const input2 = formData.get("input2") as string;
   const inputId = formData.get("inputId") as string;
 
   await prisma.product.update({
@@ -53,6 +54,7 @@ async function edit(formData: FormData) {
     },
     data: {
       title: input,
+      model: input2,
     },
   });
 
@@ -123,7 +125,7 @@ const page = async () => {
               />
               <input
                 type="text"
-                name="input"
+                name="input2"
                 defaultValue={todo.model}
                 className="border p-1"
               />

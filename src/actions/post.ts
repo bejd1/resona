@@ -47,12 +47,13 @@ export async function create(formData: FormData) {
 export async function edit(formData: FormData) {
   "use server";
 
-  const input = formData.get("input") as string;
-  const input2 = formData.get("input2") as string;
-  const input3 = formData.get("input3") as string;
-  const input4 = parseFloat(formData.get("input4") as string);
-  const input5 = formData.get("input5") as string;
   const inputId = formData.get("inputId") as string;
+  const input = formData.get("editTitle") as string;
+  const input2 = formData.get("editModel") as string;
+  const input3 = formData.get("editDescription") as string;
+  const input4 = parseFloat(formData.get("editPrize") as string);
+  const input5 = formData.get("editVariant") as string;
+  const input6 = formData.get("editUrl") as string;
 
   await prisma.product.update({
     where: {
@@ -63,8 +64,8 @@ export async function edit(formData: FormData) {
       model: input2,
       description: input3,
       prize: input4,
-      colorVariant: [],
-      image: input5,
+      colorVariant: [input5],
+      image: input6,
     },
   });
 
@@ -84,7 +85,6 @@ export async function deleteItem(formData: FormData) {
     });
 
     if (existingProduct) {
-      // Record exists, proceed with deletion
       await prisma.product.delete({
         where: {
           id: inputId,
@@ -93,12 +93,9 @@ export async function deleteItem(formData: FormData) {
 
       revalidatePath("/products/");
     } else {
-      // Record does not exist, handle accordingly
       console.error(`Product with ID ${inputId} not found`);
-      // You might want to throw an error, return a specific status, or handle it in another way based on your application's requirements
     }
   } catch (error) {
     console.error("Error deleting product:", error);
-    // Handle the error appropriately (e.g., log it, notify the user, etc.)
   }
 }

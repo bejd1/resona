@@ -2,13 +2,21 @@ import * as React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import EditProductForm from "./editProductForm";
+import { EditProps } from "@/types/types";
 
 type Props = {
   handleClose: () => void;
-  id: string | undefined;
 };
 
-export function EditProduct({ handleClose, id }: Props) {
+export function EditProduct({
+  handleClose,
+  id,
+  productData,
+}: {
+  handleClose: Props["handleClose"];
+  id: EditProps["id"];
+  productData: EditProps["productData"];
+}) {
   return (
     <Card className="relative">
       <IoIosCloseCircleOutline
@@ -19,7 +27,7 @@ export function EditProduct({ handleClose, id }: Props) {
         <CardTitle className="text-2xl sm:text-3xl">Edit product</CardTitle>
       </CardHeader>
       <CardContent>
-        <EditProductForm id={id} />
+        <EditProductForm id={id} productData={productData} />
       </CardContent>
     </Card>
   );
