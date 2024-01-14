@@ -35,7 +35,6 @@ const CreateProductForm = () => {
               id="colorVariant"
               placeholder="Color Variant"
               name="colorVariant"
-              required
             />
             <Label htmlFor="image">Url to image</Label>
             <Input

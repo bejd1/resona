@@ -121,6 +121,12 @@ const page = async () => {
                 defaultValue={todo.title}
                 className="border p-1"
               />
+              <input
+                type="text"
+                name="input"
+                defaultValue={todo.model}
+                className="border p-1"
+              />
 
               <button type="submit" className="border bg-green-400 ">
                 Save

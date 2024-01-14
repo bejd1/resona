@@ -2,11 +2,19 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "../../lib/db";
+import { dataT } from "@/types/types";
 
-export async function getData() {
+export async function getData(): Promise<dataT[]> {
   const data = await prisma.product.findMany();
-
-  return data;
+  return data.map((item) => ({
+    id: item.id,
+    title: item.title,
+    description: item.description,
+    model: item.model,
+    prize: item.prize,
+    colorVariant: item.colorVariant,
+    image: item.image as string,
+  }));
 }
 
 export async function create(formData: FormData) {
@@ -66,13 +74,31 @@ export async function edit(formData: FormData) {
 export async function deleteItem(formData: FormData) {
   "use server";
 
-  const inputId = formData.get("inputId") as string;
+  try {
+    const inputId = formData.get("inputId") as string;
 
-  await prisma.product.delete({
-    where: {
-      id: inputId,
-    },
-  });
+    const existingProduct = await prisma.product.findUnique({
+      where: {
+        id: inputId,
+      },
+    });
 
-  revalidatePath("/products");
+    if (existingProduct) {
+      // Record exists, proceed with deletion
+      await prisma.product.delete({
+        where: {
+          id: inputId,
+        },
+      });
+
+      revalidatePath("/products/");
+    } else {
+      // Record does not exist, handle accordingly
+      console.error(`Product with ID ${inputId} not found`);
+      // You might want to throw an error, return a specific status, or handle it in another way based on your application's requirements
+    }
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    // Handle the error appropriately (e.g., log it, notify the user, etc.)
+  }
 }

@@ -1,24 +1,14 @@
 import * as React from "react";
-
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import EditProductForm from "./editProductForm";
-import DeleteProduct from "./deleteProduct";
-import { getData } from "@/actions/post";
 
 type Props = {
   handleClose: () => void;
+  id: string | undefined;
 };
 
-export function EditProduct({ handleClose }: Props) {
-  getData();
+export function EditProduct({ handleClose, id }: Props) {
   return (
     <Card className="relative">
       <IoIosCloseCircleOutline
@@ -29,12 +19,8 @@ export function EditProduct({ handleClose }: Props) {
         <CardTitle className="text-2xl sm:text-3xl">Edit product</CardTitle>
       </CardHeader>
       <CardContent>
-        <EditProductForm />
+        <EditProductForm id={id} />
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <DeleteProduct />
-        <Button className=" bg-black">Edit</Button>
-      </CardFooter>
     </Card>
   );
 }

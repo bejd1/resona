@@ -1,12 +1,11 @@
 "use client";
 
 import * as React from "react";
-import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { FaRegEdit } from "react-icons/fa";
 import { EditProduct } from "@/components/modals/editCard";
 
-export default function EditProductModal() {
+export default function EditProductModal({ id }: { id: string | undefined }) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -24,7 +23,7 @@ export default function EditProductModal() {
         aria-describedby="modal-modal-description"
       >
         <div className="border-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-8 sm:px-0 sm:w-[550px]">
-          <EditProduct handleClose={handleClose} />
+          <EditProduct handleClose={handleClose} id={id} />
         </div>
       </Modal>
     </div>
