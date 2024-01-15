@@ -4,7 +4,6 @@ export type dataT = {
   description: string | undefined;
   model: string | undefined;
   prize: number | undefined;
-  colorVariant?: string[] | undefined;
   image?: string | undefined;
 };
 
@@ -15,7 +14,6 @@ export interface EditProps {
     model: string;
     description: string;
     prize: number;
-    colorVariant: string[];
     image?: string | null;
   } | null;
   id: string | undefined;

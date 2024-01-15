@@ -3,7 +3,7 @@
 // Importing necessary dependencies
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import img from "../../img/bigger.jpg";
+import img from "../../img/heroImg.jpg";
 
 const HeroImg = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -44,8 +44,8 @@ const HeroImg = () => {
         <Image
           className="w-full h-full transform transition-transform sm:transform-none ease-out duration-300"
           style={{ transform: transformStyle }}
-          width={0}
-          height={0}
+          width={1000}
+          height={1000}
           src={img}
           alt="Picture of the author"
         />

@@ -11,8 +11,13 @@ const CreateProductForm = () => {
       <form action={create}>
         <div className=" w-full items-center gap-20">
           <div className="flex flex-col space-y-1.5">
-            <Label htmlFor="title">Title</Label>
-            <Input id="title" placeholder="Title" name="title" required />
+            <Label htmlFor="title">Product name</Label>
+            <Input
+              id="title"
+              placeholder="Product name"
+              name="title"
+              required
+            />
             <Label htmlFor="model">Model</Label>
             <Input id="model" placeholder="Model" name="model" required />
             <Label htmlFor="description">Description</Label>
@@ -29,12 +34,6 @@ const CreateProductForm = () => {
               placeholder="Prize"
               name="prize"
               required
-            />
-            <Label htmlFor="colorVariant">Color Variant</Label>
-            <Input
-              id="colorVariant"
-              placeholder="Color Variant"
-              name="colorVariant"
             />
             <Label htmlFor="image">Url to image</Label>
             <Input

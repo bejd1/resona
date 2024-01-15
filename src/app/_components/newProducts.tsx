@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../../img/about.jpg";
+import img from "../../img/newProductImg.jpg";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import React, { ReactHTMLElement, useState } from "react";
-import img from "../../img/vaido-un1RE76gHDg-unsplash.jpg";
+import React, { useState } from "react";
+import img from "../../img/newsletterImg.jpg";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 

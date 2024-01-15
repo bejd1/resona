@@ -1,13 +1,5 @@
 import * as React from "react";
-
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import CreateProductForm from "./createProductForm";
 

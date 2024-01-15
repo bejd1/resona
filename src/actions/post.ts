@@ -12,7 +12,6 @@ export async function getData(): Promise<dataT[]> {
     description: item.description,
     model: item.model,
     prize: item.prize,
-    colorVariant: item.colorVariant,
     image: item.image as string,
   }));
 }
@@ -25,7 +24,6 @@ export async function create(formData: FormData) {
     const model = formData.get("model") as string;
     const description = formData.get("description") as string;
     const prize = parseFloat(formData.get("prize") as string);
-    const colorVariant = formData.get("colorVariant") as string;
     const image = formData.get("image") as string;
 
     await prisma.product.create({
@@ -34,7 +32,6 @@ export async function create(formData: FormData) {
         model: model,
         description: description,
         prize: prize,
-        colorVariant: [colorVariant],
         image: image,
       },
     });
@@ -52,7 +49,6 @@ export async function edit(formData: FormData) {
   const input2 = formData.get("editModel") as string;
   const input3 = formData.get("editDescription") as string;
   const input4 = parseFloat(formData.get("editPrize") as string);
-  const input5 = formData.get("editVariant") as string;
   const input6 = formData.get("editUrl") as string;
 
   await prisma.product.update({
@@ -64,7 +60,6 @@ export async function edit(formData: FormData) {
       model: input2,
       description: input3,
       prize: input4,
-      colorVariant: [input5],
       image: input6,
     },
   });

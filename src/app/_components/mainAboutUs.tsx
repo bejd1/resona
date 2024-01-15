@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../../img/about.jpg";
+import img from "../../img/aboutUsImg.jpg";
 
 const MainAboutUs = () => {
   return (
@@ -21,7 +21,7 @@ const MainAboutUs = () => {
         </p>
       </div>
       <div className="w-5/6 md:w-[500px]">
-        <Image src={img} width={0} height={0} alt="Picture of the author" />
+        <Image src={img} width={500} height={500} alt="Picture of the author" />
       </div>
     </div>
   );

@@ -10,12 +10,11 @@ type dataT = {
   description: string;
   model: string;
   prize: number;
-  colorVariant?: string[];
   image?: string;
 };
 
 const Products = async () => {
-  const data: dataT[] = await getData();
+  const data = await getData();
 
   return (
     <div className="py-12 px-6 md:px-24 w-full">
@@ -28,19 +27,20 @@ const Products = async () => {
       <div className="w-full h-[1px] bg-black mb-16"></div>
       <div className="flex md:grid flex-col lg:flex-wrap gap-10 cursor-pointer grid-cols-2  lg:px-4">
         {data.map((items) => {
-          const { id, title, model, prize, image, colorVariant } = items;
+          const { id, title, model, prize, image } = items;
           const img = image?.toString();
           return (
             <div key={id}>
               <Link href={`/products/${id}`}>
                 <div className="tracking-wider hover:underline w-full">
-                  <img src={image} alt="" />
-                  <Image
-                    src={img || ""}
-                    width={0}
-                    height={0}
-                    alt="Picture of the author"
-                  />
+                  <div className="w-full">
+                    <Image
+                      src={img || ""}
+                      width={1000}
+                      height={1}
+                      alt="Picture of the author"
+                    />
+                  </div>
                   <h3 className="font-bold text-xl py-1">{title}</h3>
                   <h4 className="text-lg">{model}</h4>
                   <h4 className="text-lg">od PLN {prize}</h4>

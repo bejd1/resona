@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../../img/big.jpg";
+import img from "../../img/about-us-img.jpg";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -49,7 +49,13 @@ const AboutUs = () => {
           </p>
         </div>
         <div>
-          <Image src={img} width={0} height={0} alt="Picture of the author" />
+          <Image
+            src={img}
+            width={800}
+            height={100}
+            priority={true}
+            alt="Picture of the author"
+          />
         </div>
       </div>
       <h1 className="text-4xl font-extrabold mt-12 mb-2">Wartości</h1>

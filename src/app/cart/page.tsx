@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import img from "../../img/about.jpg";
+import img from "../../img/aboutUsImg.jpg";
 import { FaTrash } from "react-icons/fa6";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
