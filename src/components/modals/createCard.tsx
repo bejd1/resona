@@ -20,7 +20,7 @@ export function CreateProduct({ handleClose }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <CreateProductForm />
+        <CreateProductForm handleClose={handleClose} />
       </CardContent>
     </Card>
   );

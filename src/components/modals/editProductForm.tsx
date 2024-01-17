@@ -9,12 +9,30 @@ import { EditProps } from "@/types/types";
 import { Divider } from "@mui/material";
 import { Textarea } from "../ui/textarea";
 
-const EditProductForm = ({ id, productData }: EditProps) => {
-  const [isPending] = useTransition();
+interface Props {
+  id: EditProps["id"];
+  productData: EditProps["productData"];
+  handleClose: () => void;
+}
+
+const EditProductForm = ({ id, productData, handleClose }: Props) => {
+  const [isPending, startTransition] = useTransition();
+
+  const handleEditSubmit = async (formData: FormData) => {
+    await edit(formData);
+    startTransition(() => {
+      handleClose();
+    });
+  };
 
   return (
     <div>
-      <form action={edit}>
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await handleEditSubmit(new FormData(e.target as HTMLFormElement));
+        }}
+      >
         <div className="grid w-full items-center gap-4">
           <div className="flex flex-col space-y-1.5">
             <input type="hidden" name="inputId" value={id} />
@@ -24,6 +42,7 @@ const EditProductForm = ({ id, productData }: EditProps) => {
               placeholder="Product name"
               name="editTitle"
               defaultValue={productData?.title}
+              autoFocus
             />
             <Label htmlFor="model">Model</Label>
             <Input
@@ -37,6 +56,7 @@ const EditProductForm = ({ id, productData }: EditProps) => {
               id="description"
               placeholder="Description"
               name="editDescription"
+              rows={4}
               defaultValue={productData?.description}
             />
             <Label htmlFor="prize">Prize</Label>
@@ -55,6 +75,10 @@ const EditProductForm = ({ id, productData }: EditProps) => {
                 productData?.image !== null ? productData?.image : undefined
               }
             />
+            <Input id="picture" type="file" required />
+            <Button type="submit" className="bg-black w-full">
+              Create
+            </Button>
             <CardFooter className="flex justify-between p-0 w-full">
               <Button
                 disabled={isPending}
@@ -69,7 +93,7 @@ const EditProductForm = ({ id, productData }: EditProps) => {
         </div>
       </form>
       <div className="mt-2 w-full">
-        <DeleteProduct id={id} />
+        <DeleteProduct id={id} handleClose={handleClose} />
       </div>
     </div>
   );

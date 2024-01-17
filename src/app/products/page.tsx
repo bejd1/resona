@@ -31,13 +31,14 @@ const Products = async () => {
           const img = image?.toString();
           return (
             <div key={id}>
-              <Link href={`/products/${id}`}>
+              <Link href={`/products/${id}`} scroll={true}>
                 <div className="tracking-wider hover:underline w-full">
-                  <div className="w-full">
+                  <div className="">
                     <Image
                       src={img || ""}
-                      width={1000}
-                      height={1}
+                      width={800}
+                      height={200}
+                      className="lg:h-[600px] md:object-cover"
                       alt="Picture of the author"
                     />
                   </div>

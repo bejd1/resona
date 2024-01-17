@@ -13,6 +13,7 @@ export async function getData(): Promise<dataT[]> {
     model: item.model,
     prize: item.prize,
     image: item.image as string,
+    // picture: item.image,
   }));
 }
 
@@ -64,7 +65,7 @@ export async function edit(formData: FormData) {
     },
   });
 
-  revalidatePath("/");
+  revalidatePath("/products");
 }
 
 export async function deleteItem(formData: FormData) {
@@ -86,7 +87,7 @@ export async function deleteItem(formData: FormData) {
         },
       });
 
-      revalidatePath("/products/");
+      revalidatePath("/products");
     } else {
       console.error(`Product with ID ${inputId} not found`);
     }

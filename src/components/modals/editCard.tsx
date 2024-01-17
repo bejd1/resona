@@ -18,16 +18,20 @@ export function EditProduct({
   productData: EditProps["productData"];
 }) {
   return (
-    <Card className="relative">
+    <Card className="relative border-none">
       <IoIosCloseCircleOutline
-        className="absolute right-4 top-3 text-4xl cursor-pointer"
+        className="absolute right-4 top-3 text-4xl cursor-pointer border-none"
         onClick={handleClose}
       />
       <CardHeader>
         <CardTitle className="text-2xl sm:text-3xl">Edit product</CardTitle>
       </CardHeader>
       <CardContent>
-        <EditProductForm id={id} productData={productData} />
+        <EditProductForm
+          id={id}
+          productData={productData}
+          handleClose={handleClose}
+        />
       </CardContent>
     </Card>
   );

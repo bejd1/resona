@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import { create } from "@/actions/post";
 import { Textarea } from "../ui/textarea";
 
-const CreateProductForm = () => {
+const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
+  const ref = useRef<HTMLFormElement>(null);
+
   return (
     <div>
-      <form action={create}>
+      <form
+        ref={ref}
+        action={async (formData) => {
+          ref.current?.reset();
+          handleClose();
+          await create(formData);
+        }}
+      >
         <div className=" w-full items-center gap-20">
           <div className="flex flex-col space-y-1.5">
             <Label htmlFor="title">Product name</Label>
@@ -16,6 +25,7 @@ const CreateProductForm = () => {
               id="title"
               placeholder="Product name"
               name="title"
+              autoFocus
               required
             />
             <Label htmlFor="model">Model</Label>
@@ -25,6 +35,7 @@ const CreateProductForm = () => {
               id="description"
               placeholder="Description"
               name="description"
+              rows={4}
               required
             />
             <Label htmlFor="prize">Prize</Label>
@@ -42,7 +53,8 @@ const CreateProductForm = () => {
               name="image"
               required
             />
-
+            <Label htmlFor="picture">Picture</Label>
+            <Input id="picture" type="file" required />
             <Button type="submit" className="bg-black w-full">
               Create
             </Button>

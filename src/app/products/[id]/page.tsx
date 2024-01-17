@@ -16,15 +16,17 @@ const Product = async ({ params }: { params: { id: string } }) => {
   return (
     <div
       key={productData?.id}
-      className="mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center min-h-[75vh]"
+      className="px-4 md:px-24 w-full flex flex-col justify-center items-center lg:items-start lg:grid grid-cols-[2fr,1fr] gap-16 mb-10 lg:mb-5 min-h-[85vh] overflow-hidden"
     >
-      <Image
-        src={img || ""}
-        width={500}
-        height={500}
-        alt="Picture of the author"
-      />
-      <div className="flex flex-col w-4/5 sm:w-80 md:w-96">
+      <div className="flex items-center justify-center h-full">
+        <Image
+          src={img || ""}
+          width={1000}
+          height={500}
+          alt="Picture of the author"
+        />
+      </div>
+      <div className="flex flex-col lg:mt-20 h-full lg:w-5/6">
         <h3 className="text-2xl font-medium">{productData?.title}</h3>
         <h2 className="text-3xl md:text-4xl my-2 font-black">
           {productData?.model}
