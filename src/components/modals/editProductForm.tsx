@@ -75,10 +75,8 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
                 productData?.image !== null ? productData?.image : undefined
               }
             />
-            <Input id="picture" type="file" required />
-            <Button type="submit" className="bg-black w-full">
-              Create
-            </Button>
+            {/* <Label htmlFor="picture">Picture</Label>
+            <Input id="picture" type="file" name="editPicture" required /> */}
             <CardFooter className="flex justify-between p-0 w-full">
               <Button
                 disabled={isPending}

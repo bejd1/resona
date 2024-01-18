@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
-import { create } from "@/actions/post";
+import { createProductWithImage } from "@/actions/post";
 import { Textarea } from "../ui/textarea";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
@@ -15,7 +15,7 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
         action={async (formData) => {
           ref.current?.reset();
           handleClose();
-          await create(formData);
+          await createProductWithImage(formData);
         }}
       >
         <div className=" w-full items-center gap-20">
@@ -53,8 +53,8 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
               name="image"
               required
             />
-            <Label htmlFor="picture">Picture</Label>
-            <Input id="picture" type="file" required />
+            {/* <Label htmlFor="picture">Picture</Label>
+            <Input id="picture" type="file" name="picture" required /> */}
             <Button type="submit" className="bg-black w-full">
               Create
             </Button>

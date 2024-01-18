@@ -5,7 +5,7 @@ export type dataT = {
   model: string | undefined;
   prize: number | undefined;
   image?: string | undefined;
-  picture?: File | undefined;
+  picture?: Buffer | null;
 };
 
 export interface EditProps {
@@ -16,7 +16,7 @@ export interface EditProps {
     description: string;
     prize: number;
     image?: string | null;
-    picture?: File | undefined;
+    picture?: Buffer | null;
   } | null;
   id: string | undefined;
 }

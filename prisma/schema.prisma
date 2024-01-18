@@ -44,4 +44,5 @@ model Product {
   description   String
   prize         Float
   image         String?
+  picture       Bytes?
 }

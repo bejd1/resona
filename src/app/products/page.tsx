@@ -1,20 +1,14 @@
-import React from "react";
+import { getData } from "@/actions/post";
 import Image from "next/image";
 import Link from "next/link";
 import CreateProductModal from "../_components/createModal";
-import { getData } from "@/actions/post";
-
-type dataT = {
-  id: string;
-  title: string;
-  description: string;
-  model: string;
-  prize: number;
-  image?: string;
-};
 
 const Products = async () => {
   const data = await getData();
+
+  const scrollUp = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="py-12 px-6 md:px-24 w-full">
@@ -28,14 +22,13 @@ const Products = async () => {
       <div className="flex md:grid flex-col lg:flex-wrap gap-10 cursor-pointer grid-cols-2  lg:px-4">
         {data.map((items) => {
           const { id, title, model, prize, image } = items;
-          const img = image?.toString();
           return (
             <div key={id}>
-              <Link href={`/products/${id}`} scroll={true}>
+              <Link href={`/products/${id}`}>
                 <div className="tracking-wider hover:underline w-full">
                   <div className="">
                     <Image
-                      src={img || ""}
+                      src={image || ""}
                       width={800}
                       height={200}
                       className="lg:h-[600px] md:object-cover"
