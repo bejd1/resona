@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./_components/nav";
 import Footer from "./_components/footer";
 import favicon from "./favicon.ico";
+import Scroll from "./_components/Scroll";
 
 const newIcon = favicon.src;
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href={newIcon} />
       </head>
+      <Scroll />
       <body className={poppins.className}>
         <div className="sticky top-0 z-[100] bg-white">
           <Navbar />

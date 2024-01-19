@@ -9,6 +9,13 @@ const nextConfig = {
       "scontent-waw1-1.xx.fbcdn.net",
       "images.unsplash.com",
     ],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "**",
+      },
+    ],
   },
 };
 

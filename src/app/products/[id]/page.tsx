@@ -10,9 +10,6 @@ const Product = async ({ params }: { params: { id: string } }) => {
       id: params.id,
     },
   });
-
-  const img = productData?.image?.toString();
-
   return (
     <div
       key={productData?.id}
@@ -20,7 +17,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
     >
       <div className="flex items-center justify-center h-full">
         <Image
-          src={img || ""}
+          src={productData?.image || ""}
           width={1000}
           height={500}
           alt="Picture of the author"

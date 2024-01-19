@@ -6,10 +6,6 @@ import CreateProductModal from "../_components/createModal";
 const Products = async () => {
   const data = await getData();
 
-  const scrollUp = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <div className="py-12 px-6 md:px-24 w-full">
       <div className="flex justify-between items-center">
@@ -24,7 +20,7 @@ const Products = async () => {
           const { id, title, model, prize, image } = items;
           return (
             <div key={id}>
-              <Link href={`/products/${id}`}>
+              <Link href={`/products/${id}`} scroll={true}>
                 <div className="tracking-wider hover:underline w-full">
                   <div className="">
                     <Image
