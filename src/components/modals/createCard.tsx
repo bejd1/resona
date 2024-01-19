@@ -15,7 +15,7 @@ export function CreateProduct({ handleClose }: Props) {
         onClick={handleClose}
       />
       <CardHeader>
-        <CardTitle className="text-2xl sm:text-3xl">
+        <CardTitle className="text-xl md:text-2xl sm:text-3xl">
           Create a new product
         </CardTitle>
       </CardHeader>

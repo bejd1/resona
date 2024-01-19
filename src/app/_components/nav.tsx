@@ -24,7 +24,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="flex space-x-6 h-16 px-6 sm:px-12 lg:px-24 py-16 items-center justify-between">
+    <div className="flex space-x-6 h-16 px-6 sm:px-12 lg:px-24 py-12 md:py-16 items-center justify-between">
       <div className="flex gap-10">
         <Link className="flex items-center text-xl" href="/">
           <div className="flex gap-0 md:gap-2 items-center font-black font-poppins mr-4 text-xl sm:text-3xl">

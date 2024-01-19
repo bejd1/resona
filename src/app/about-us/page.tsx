@@ -9,14 +9,12 @@ export const metadata: Metadata = {
 
 const AboutUs = () => {
   return (
-    <div className="py-12 px-6 md:px-24 w-full">
-      <h1 className="flex place-items-start text-4xl font-extrabold mb-2">
-        O nas
-      </h1>
-      <div className="w-full h-[1px] bg-black mb-20"></div>
+    <div className="py-4 md:py-12 px-6 md:px-24 w-full">
+      <h1 className="text-2xl md:text-4xl font-extrabold mb-2">O nas</h1>
+      <div className="w-full h-[1px] bg-black mb-8 md:mb-16"></div>
       <div className="flex lg:grid grid-cols-2 gap-10 flex-col">
         <div className="tracking-wide">
-          <h3 className="text-2xl font-extrabold mb-4">
+          <h3 className="text-xl md:text-2xl font-extrabold mb-4">
             Historia Firmy "Resona"
           </h3>
           <p className="mb-2">
@@ -28,7 +26,7 @@ const AboutUs = () => {
             oczekiwania, ale również inspiruje i łączy ludzi wokół wspólnego
             doświadczenia.
           </p>
-          <h3 className="mb-1 text-xl font-bold">Wizja</h3>
+          <h3 className="mb-1 text-md md:text-xl font-bold">Wizja</h3>
           <p className="mb-2">
             Marzymy o świecie, w którym elektroniczne urządzenia nie są
             jednorazowe i nienaprawialne. Resona to nie tylko marka, to idea
@@ -38,7 +36,7 @@ const AboutUs = () => {
             nie tylko ułatwia życie codzienne, ale również stanowi źródło
             inspiracji i radości.
           </p>
-          <h3 className="mb-1 text-xl font-bold">Misja</h3>
+          <h3 className="mb-1 text-md md:text-xl font-bold">Misja</h3>
           <p className="mb-2">
             Dążyć do rozwoju najlepszych tradycji inżynierii, stawiając na
             produkcję lokalną, tworzymy sprzęt elektroniczny, który dostarcza
@@ -62,14 +60,16 @@ const AboutUs = () => {
       <div className="w-full h-[1px] bg-black mb-12"></div>
       <div className="flex gap-10 justify-center flex-col lg:flex-row">
         <div className="flex flex-col">
-          <h3 className="mb-1 text-xl font-bold">INNOWACYJNOŚĆ</h3>
+          <h3 className="mb-1 text-md md:text-xl font-bold">INNOWACYJNOŚĆ</h3>
           <p className="mb-2">
             W Resona odważamy się eksperymentować z nowymi, niekonwencjonalnymi
             rozwiązaniami, zawsze dążąc do implementacji praktycznych innowacji.
           </p>
         </div>
         <div className="flex flex-col">
-          <h3 className="mb-1 text-xl font-bold">SPOŁECZNOŚĆ I PASJA</h3>
+          <h3 className="mb-1 text-md md:text-xl font-bold">
+            SPOŁECZNOŚĆ I PASJA
+          </h3>
           <p className="mb-2">
             Jesteśmy nie tylko producentem urządzeń elektronicznych, ale również
             wspólnotą ludzi z pasją do technologii. Tworzymy dla ludzi, z
@@ -77,7 +77,9 @@ const AboutUs = () => {
           </p>
         </div>
         <div className="flex flex-col">
-          <h3 className="mb-1 text-xl font-bold">NAPĘDZANI INŻYNIERIĄ</h3>
+          <h3 className="mb-1 text-md md:text-xl font-bold">
+            NAPĘDZANI INŻYNIERIĄ
+          </h3>
           <p className="mb-2">
             Miłość do inżynierii jest fundamentem naszej działalności. To ona
             sprawia, że każdy produkt, który opuszcza nasze laboratoria, jest
@@ -85,7 +87,9 @@ const AboutUs = () => {
           </p>
         </div>
         <div className="flex flex-col">
-          <h3 className="mb-1 text-xl font-bold">ODPOWIEDZIALNOŚĆ</h3>
+          <h3 className="mb-1 text-md md:text-xl font-bold">
+            ODPOWIEDZIALNOŚĆ
+          </h3>
           <p className="mb-2">
             Jesteśmy świadomi wpływu naszych produktów na życie ludzi i
             środowisko. Dlatego angażujemy się w tworzenie rozwiązań z myślą o
@@ -94,7 +98,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <p className="my-8 font-extrabold">
+      <p className="my-8 text-xl font-extrabold">
         Resona - Twoje okno do nowoczesnej elektroniki, gdzie innowacje
         spotykają się z solidnością.
       </p>

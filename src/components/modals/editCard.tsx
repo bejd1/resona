@@ -24,7 +24,7 @@ export function EditProduct({
         onClick={handleClose}
       />
       <CardHeader>
-        <CardTitle className="text-2xl sm:text-3xl">Edit product</CardTitle>
+        <CardTitle className="text-xl md:text-2xl">Edit product</CardTitle>
       </CardHeader>
       <CardContent>
         <EditProductForm

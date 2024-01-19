@@ -39,7 +39,7 @@ const HeroImg = () => {
   const transformStyle = isMobile ? "none" : `translateY(-${translateY}px)`;
 
   return (
-    <div className="max-h-[150px] md:max-h-[220px] lg:max-h-[300px] xl:max-h-[400px] 2xl:max-h-[550px] w-full overflow-hidden sm:mb-12 px-4 sm:px-8">
+    <div className="max-h-[150px] md:max-h-[220px] lg:max-h-[300px] xl:max-h-[400px] 2xl:max-h-[550px] w-full overflow-hidden mb-4 md:mb-12 px-2 md:px-8">
       <div className="relative w-full">
         <Image
           className="w-full h-full transform transition-transform sm:transform-none ease-out duration-300"

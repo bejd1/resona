@@ -24,13 +24,17 @@ const Product = async ({ params }: { params: { id: string } }) => {
         />
       </div>
       <div className="flex flex-col lg:mt-20 h-full lg:w-5/6">
-        <h3 className="text-2xl font-medium">{productData?.title}</h3>
-        <h2 className="text-3xl md:text-4xl my-2 font-black">
+        <h3 className="text-xl md:text-2xl font-medium">
+          {productData?.title}
+        </h3>
+        <h2 className="text-2xl md:text-4xl my-2 font-black">
           {productData?.model}
         </h2>
         <p className="py-3 tracking-wide">{productData?.description}</p>
         <div className="flex justify-between">
-          <p className="text-2xl font-medium">PLN {productData?.prize}</p>
+          <p className="text-xl md:text-2xl font-medium">
+            PLN {productData?.prize}
+          </p>
           <EditProductModal id={productData?.id} productData={productData} />
         </div>
         <Button className="bg-black h-11 mt-3">Add to cart</Button>
