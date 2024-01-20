@@ -1,12 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useTransition } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import { createProductWithImage } from "@/actions/post";
 import { Textarea } from "../ui/textarea";
+import { toast } from "sonner";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const ref = useRef<HTMLFormElement>(null);
+  const [isPending] = useTransition();
 
   return (
     <div>
@@ -55,8 +57,20 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
             />
             {/* <Label htmlFor="picture">Picture</Label>
             <Input id="picture" type="file" name="picture" required /> */}
-            <Button type="submit" className="bg-black w-full">
-              Create
+            <Button
+              onClick={() =>
+                toast("Create", {
+                  description: "",
+                  action: {
+                    label: "X",
+                    onClick: () => console.log("Undo"),
+                  },
+                })
+              }
+              type="submit"
+              className="bg-black w-full"
+            >
+              {!isPending ? "Creating..." : "Create"}
             </Button>
           </div>
         </div>

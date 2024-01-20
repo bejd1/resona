@@ -13,7 +13,7 @@ const NewProducts = () => {
       <div className="w-full h-[1px] bg-black mb-8 md:mb-16"></div>
       <div className="flex-col md:flex-row gap-10 flex justify-around items-center">
         <div className="w-5/6 md:w-[500px]">
-          <Image src={img} width={0} height={0} alt="Picture of the author" />
+          <Image src={img} width={0} height={0} alt="Speaker" />
         </div>
         <div className="flex flex-col w-4/5 sm:w-80 md:w-2/5">
           <p className="tracking-wide">

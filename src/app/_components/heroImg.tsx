@@ -47,7 +47,7 @@ const HeroImg = () => {
           width={1000}
           height={1000}
           src={img}
-          alt="Picture of the author"
+          alt="Hero img"
         />
         <div
           className="absolute w-full top-0 h-full"

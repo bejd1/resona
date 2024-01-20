@@ -20,7 +20,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
           src={productData?.image || ""}
           width={1000}
           height={500}
-          alt="Picture of the author"
+          alt="Product picture"
         />
       </div>
       <div className="flex flex-col lg:mt-20 h-full lg:w-5/6">

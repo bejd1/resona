@@ -4,7 +4,8 @@ import "./globals.css";
 import Navbar from "./_components/nav";
 import Footer from "./_components/footer";
 import favicon from "./favicon.ico";
-import Scroll from "./_components/Scroll";
+import Scroll from "./_components/scroll";
+import { Toaster } from "@/components/ui/sonner";
 
 const newIcon = favicon.src;
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           <Navbar />
         </div>
         {children}
+        <Toaster />
         <Footer />
       </body>
     </html>

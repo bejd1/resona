@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { deleteItem } from "@/actions/post";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 const DeleteProduct = ({
   id,
   handleClose,
@@ -13,7 +14,6 @@ const DeleteProduct = ({
 
   const navigateToProducts = () => {
     router.back();
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
     <div>
@@ -26,7 +26,15 @@ const DeleteProduct = ({
         <input type="hidden" name="inputId" value={id} />
         <Button
           formAction={deleteItem}
-          onClick={navigateToProducts}
+          onClick={() =>
+            toast("Delete", {
+              description: "",
+              action: {
+                label: "X",
+                onClick: () => navigateToProducts,
+              },
+            })
+          }
           className="bg-red-600 hover:bg-red-500 w-full"
         >
           Delete

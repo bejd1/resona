@@ -10,7 +10,7 @@ const CartLeft = () => {
       <div className="py-4 px-3 md:px-8 flex justify-between lg:gap-4 bg-[#eff0f0]">
         <div className="flex gap-4">
           <div className="w-[100px] md:w-[150px]">
-            <Image width={0} height={0} src={img} alt="Picture of the author" />
+            <Image width={0} height={0} src={img} alt="Product picture" />
           </div>
           <div>
             <h2 className="text-lg lg:text-xl font-bold">Harmony SoundWave</h2>

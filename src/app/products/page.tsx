@@ -28,7 +28,7 @@ const Products = async () => {
                       width={800}
                       height={200}
                       className="lg:h-[600px] md:object-cover"
-                      alt="Picture of the author"
+                      alt="Product picture"
                     />
                   </div>
                   <h3 className="font-bold text-md md:text-xl py-1">{title}</h3>

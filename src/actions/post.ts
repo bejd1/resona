@@ -14,7 +14,7 @@ export async function getData(): Promise<dataT[]> {
     model: item.model,
     prize: item.prize,
     image: item.image as string,
-    picture: item.picture,
+    // picture: item.picture,
   }));
 }
 
@@ -25,9 +25,9 @@ export async function createProductWithImage(formData: FormData) {
     const description = formData.get("description") as string;
     const prize = parseFloat(formData.get("prize") as string);
     const image = formData.get("image") as string;
-    const pictureFile = formData.get("picture") as File;
-    const arrayBuffer = await pictureFile.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    // const pictureFile = formData.get("picture") as File;
+    // const arrayBuffer = await pictureFile.arrayBuffer();
+    // const buffer = Buffer.from(arrayBuffer);
 
     revalidatePath("/products");
 
@@ -38,7 +38,7 @@ export async function createProductWithImage(formData: FormData) {
         description: description,
         prize: prize,
         image: image,
-        picture: buffer,
+        // picture: buffer,
       },
     });
   } catch (error) {
@@ -54,14 +54,14 @@ export async function edit(formData: FormData) {
     const input3 = formData.get("editDescription") as string;
     const input4 = parseFloat(formData.get("editPrize") as string);
     const input6 = formData.get("editUrl") as string;
-    const input7 = formData.get("editPicture") as File;
+    // const input7 = formData.get("editPicture") as File;
 
-    let picture: Buffer | undefined;
+    // let picture: Buffer | undefined;
 
-    if (input7) {
-      const pictureBuffer = await input7.arrayBuffer();
-      picture = Buffer.from(pictureBuffer);
-    }
+    // if (input7) {
+    //   const pictureBuffer = await input7.arrayBuffer();
+    //   picture = Buffer.from(pictureBuffer);
+    // }
 
     await prisma.product.update({
       where: {
@@ -73,7 +73,7 @@ export async function edit(formData: FormData) {
         description: input3,
         prize: input4,
         image: input6,
-        picture: picture,
+        // picture: picture,
       },
     });
 

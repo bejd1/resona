@@ -8,6 +8,7 @@ import { edit } from "@/actions/post";
 import { EditProps } from "@/types/types";
 import { Divider } from "@mui/material";
 import { Textarea } from "../ui/textarea";
+import { toast } from "sonner";
 
 interface Props {
   id: EditProps["id"];
@@ -82,6 +83,15 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
                 disabled={isPending}
                 type="submit"
                 className="bg-black w-full"
+                onClick={() =>
+                  toast("Edit", {
+                    description: "",
+                    action: {
+                      label: "X",
+                      onClick: () => console.log("Undo"),
+                    },
+                  })
+                }
               >
                 Edit
               </Button>

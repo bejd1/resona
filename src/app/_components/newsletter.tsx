@@ -38,7 +38,7 @@ const Newsletter = () => {
         </form>
       </div>
       <div className="w-5/6 md:w-[500px]">
-        <Image src={img} width={0} height={0} alt="Picture" />
+        <Image src={img} width={0} height={0} alt="Audio speaker system" />
       </div>
     </div>
   );

@@ -50,7 +50,7 @@ const AboutUs = () => {
             width={800}
             height={100}
             priority={true}
-            alt="Picture of the author"
+            alt="Production Engineer"
           />
         </div>
       </div>
