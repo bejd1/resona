@@ -10,7 +10,7 @@ const Products = async () => {
     <div className="py-4 md:py-12 px-6 md:px-24 w-full">
       <div className="flex justify-between items-center mb-2">
         <h1 className="flex items-center text-2xl md:text-4xl font-extrabold">
-          Nasze produkty
+          Our Products
         </h1>
         <CreateProductModal />
       </div>
@@ -33,7 +33,7 @@ const Products = async () => {
                   </div>
                   <h3 className="font-bold text-md md:text-xl py-1">{title}</h3>
                   <h4 className="text-md md:text-lg">{model}</h4>
-                  <h4 className="text-md md:text-lg">od PLN {prize}</h4>
+                  <h4 className="text-md md:text-lg">Starting from ${prize}</h4>
                 </div>
               </Link>
             </div>

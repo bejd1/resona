@@ -8,18 +8,17 @@ const MainAboutUs = () => {
       <div className="w-4/5 sm:w-80 md:w-96">
         <h2 className="text-xl md:text-2xl font-medium">RESONA</h2>
         <h1 className="text-2xl md:text-4xl my-2 font-black">
-          Piękno polskiej inżynierii
+          Elegance of Polish Engineering
         </h1>
         <p className="tracking-wide">
-          Inżynieria jest dla nas wzorcem ponadczasowego piękna. Nasze
-          urządzenia są piękne, ponieważ są zaprojektowane zgodnie z najlepszymi
-          praktykami inżynierii od projektu począwszy, a na najmniejszym detalu
-          realizacji skończywszy. Jeżeli coś jest kunsztownie zaprojektowane od
-          samego początku i starannie wykonane na końcu - to piękno emanuje na
-          zewnątrz.
+          Engineering is a timeless source of elegance for us. Our devices
+          captivate not only with their external beauty but also with impeccable
+          design, a result of the best engineering practices. The artistry of
+          the design and precision in execution form the foundation on which the
+          beauty of our products rests, radiating outward.
           <br />
-          Zewnętrzne piękno jest emanacją kunsztownie zaprojektowanego wnętrza
-          naszych urządzeń.
+          What we see on the outside is a harmonious manifestation of a
+          meticulously designed interior of our devices.
         </p>
       </div>
       <div className="w-full md:w-[500px]">

@@ -19,7 +19,7 @@ const CartLeft = () => {
         </div>
         <div className="flex flex-col items-center gap-2 lg:gap-4">
           <div className="flex gap-2 lg:gap-4 items-center">
-            <p className="text-black text-lg lg:text-xl">PLN 1499</p>
+            <p className="text-black text-lg lg:text-xl">$ 1499</p>
             <div className="text-lg lg:text-xl cursor-pointer hover:text-primary/95">
               <FaTrash />
             </div>

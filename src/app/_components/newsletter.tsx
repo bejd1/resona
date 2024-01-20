@@ -18,11 +18,11 @@ const Newsletter = () => {
     <div className="mt-12 mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
       <div className="flex flex-col justify-center w-4/5 sm:w-80 md:w-96">
         <h2 className="text-2xl md:text-4xl my-2 font-black">
-          Dołącz do pasjonatów muzyki i inżynierskiego sprzętu!
+          Join music and engineering enthusiasts!
         </h2>
         <p className="py-3 tracking-wide">
-          Subskrybuj nasz newsletter, aby otrzymywać bieżące informacje na temat
-          nowych produktów, promocji oraz aktualnych wydarzeń.
+          Subscribe to our newsletter to receive up-to-date information on new
+          products, promotions, and current events.
         </p>
         <form onSubmit={handleSubmit}>
           <Input

@@ -33,7 +33,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
         <p className="py-3 tracking-wide">{productData?.description}</p>
         <div className="flex justify-between">
           <p className="text-xl md:text-2xl font-medium">
-            PLN {productData?.prize}
+            Starting from ${productData?.prize}
           </p>
           <EditProductModal id={productData?.id} productData={productData} />
         </div>
