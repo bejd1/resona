@@ -8,16 +8,32 @@ import { toast } from "sonner";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const ref = useRef<HTMLFormElement>(null);
-  const [isPending] = useTransition();
+  const [isPending, startTransition] = useTransition();
+
+  const handleCreateSubmit = async (formData: FormData) => {
+    try {
+      await createProductWithImage(formData);
+
+      startTransition(() => {
+        handleClose();
+      });
+
+      toast("Success!", {
+        description: "You have successfully create your product",
+      });
+      ref.current?.reset();
+    } catch (error) {
+      console.error("Edit function failed", error);
+    }
+  };
 
   return (
     <div>
       <form
         ref={ref}
-        action={async (formData) => {
-          ref.current?.reset();
-          handleClose();
-          await createProductWithImage(formData);
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await handleCreateSubmit(new FormData(e.target as HTMLFormElement));
         }}
       >
         <div className=" w-full items-center gap-20">
@@ -58,19 +74,11 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
             {/* <Label htmlFor="picture">Picture</Label>
             <Input id="picture" type="file" name="picture" required /> */}
             <Button
-              onClick={() =>
-                toast("Create", {
-                  description: "",
-                  action: {
-                    label: "X",
-                    onClick: () => console.log("Undo"),
-                  },
-                })
-              }
+              disabled={isPending}
               type="submit"
               className="bg-black w-full"
             >
-              {!isPending ? "Creating..." : "Create"}
+              {isPending ? "Creating..." : "Create"}
             </Button>
           </div>
         </div>
@@ -80,3 +88,87 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
 };
 
 export default CreateProductForm;
+// import React, { useRef, useTransition } from "react";
+// import { Input } from "@/components/ui/input";
+// import { Label } from "@/components/ui/label";
+// import { Button } from "../ui/button";
+// import { createProductWithImage } from "@/actions/post";
+// import { Textarea } from "../ui/textarea";
+// import { toast } from "sonner";
+
+// const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
+//   const ref = useRef<HTMLFormElement>(null);
+//   const [isPending, startTransition] = useTransition();
+
+//   return (
+//     <div>
+//       <form
+//         ref={ref}
+//         action={async (formData) => {
+//           startTransition;
+//           ref.current?.reset();
+//           handleClose();
+//           await createProductWithImage(formData);
+//         }}
+//       >
+//         <div className=" w-full items-center gap-20">
+//           <div className="flex flex-col space-y-1.5">
+//             <Label htmlFor="title">Product name</Label>
+//             <Input
+//               id="title"
+//               placeholder="Product name"
+//               name="title"
+//               autoFocus
+//               required
+//             />
+//             <Label htmlFor="model">Model</Label>
+//             <Input id="model" placeholder="Model" name="model" required />
+//             <Label htmlFor="description">Description</Label>
+//             <Textarea
+//               id="description"
+//               placeholder="Description"
+//               name="description"
+//               rows={4}
+//               required
+//             />
+//             <Label htmlFor="prize">Prize</Label>
+//             <Input
+//               type="number"
+//               id="prize"
+//               placeholder="Prize"
+//               name="prize"
+//               required
+//             />
+//             <Label htmlFor="image">Url to image</Label>
+//             <Input
+//               id="image"
+//               placeholder="Url to image"
+//               name="image"
+//               required
+//             />
+//             {/* <Label htmlFor="picture">Picture</Label>
+//             <Input id="picture" type="file" name="picture" required /> */}
+//             <Button
+//               disabled={isPending}
+//               type="submit"
+//               className="bg-black w-full"
+//               onClick={() =>
+//                 toast("Success!", {
+//                   description: "You have successfully create your product",
+//                   action: {
+//                     label: "X",
+//                     onClick: () => console.log("Undo"),
+//                   },
+//                 })
+//               }
+//             >
+//               {isPending ? "Creating..." : "Create"}
+//             </Button>
+//           </div>
+//         </div>
+//       </form>
+//     </div>
+//   );
+// };
+
+// export default CreateProductForm;

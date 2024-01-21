@@ -20,10 +20,18 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
   const [isPending, startTransition] = useTransition();
 
   const handleEditSubmit = async (formData: FormData) => {
-    await edit(formData);
-    startTransition(() => {
-      handleClose();
-    });
+    try {
+      await edit(formData);
+
+      startTransition(() => {
+        handleClose();
+      });
+      toast("Success!", {
+        description: "You have successfully updated your product",
+      });
+    } catch (error) {
+      console.error("Edit function failed", error);
+    }
   };
 
   return (
@@ -83,17 +91,8 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
                 disabled={isPending}
                 type="submit"
                 className="bg-black w-full"
-                onClick={() =>
-                  toast("Edit", {
-                    description: "",
-                    action: {
-                      label: "X",
-                      onClick: () => console.log("Undo"),
-                    },
-                  })
-                }
               >
-                Edit
+                {isPending ? "Editing..." : "Edit"}
               </Button>
             </CardFooter>
             <Divider>or</Divider>
