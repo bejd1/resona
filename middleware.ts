@@ -1,4 +1,4 @@
-import { auth } from "./auth";
+import { auth } from "./src/app/utils/auth";
 
 export default auth((req) => {
   console.log("ROUTE: ", req.nextUrl.pathname);

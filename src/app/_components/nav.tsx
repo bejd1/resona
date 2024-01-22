@@ -1,17 +1,17 @@
-"use client";
-
 import Link from "next/link";
 import React from "react";
 import { TbHexagonLetterR } from "react-icons/tb";
 import { CiShoppingCart } from "react-icons/ci";
 import { DrawerDemo } from "@/components/menu";
 import { Button } from "@/components/ui/button";
+import Logout from "./logout";
+import { auth } from "../utils/auth";
 
 interface linksI {
   label: string;
   href: string;
 }
-const Navbar = () => {
+const Navbar = async () => {
   const links: linksI[] = [
     {
       label: "PRODUCTS",
@@ -22,6 +22,7 @@ const Navbar = () => {
       href: "/about-us",
     },
   ];
+  const session = await auth();
 
   return (
     <div className="flex space-x-6 h-16 px-6 sm:px-12 lg:px-24 py-12 md:py-16 items-center justify-between">
@@ -55,11 +56,16 @@ const Navbar = () => {
             <CiShoppingCart />
           </Link>
         </div>
-        <Link href="/login">
-          <Button className=" bg-black hidden h-10 font-semibold lg:block">
-            SIGN UP
-          </Button>
-        </Link>
+        {!session ? (
+          <Link href="/login">
+            <Button className=" bg-black hidden h-10 font-semibold lg:block">
+              SIGN UP
+            </Button>
+          </Link>
+        ) : (
+          <Logout />
+        )}
+
         <DrawerDemo />
       </div>
     </div>

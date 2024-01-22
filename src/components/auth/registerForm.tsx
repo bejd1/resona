@@ -23,6 +23,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FormSuccess } from "./formSuccess";
 import { FormError } from "./formError";
 import { register } from "@/actions/register";
+import SingInWithGithub from "@/app/_components/singInWithGithub";
+import SingInWithGoogle from "@/app/_components/singInWithGoogle";
 
 const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -135,20 +137,8 @@ const RegisterForm = () => {
         <FormError message={error} />
       </form>
       <FormDescription className="flex gap-2">
-        <Button
-          variant="outline"
-          className=" w-full py-5 text-black font-extrabold"
-        >
-          <FaGithub className="mr-1" />
-          Github
-        </Button>
-        <Button
-          variant="outline"
-          className="bg-white w-full py-5 text-black font-extrabold"
-        >
-          <FcGoogle className="mr-1" />
-          Google
-        </Button>
+        <SingInWithGithub />
+        <SingInWithGoogle />
       </FormDescription>
     </Form>
   );

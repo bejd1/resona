@@ -8,6 +8,8 @@ const nextConfig = {
       "cdn.discordapp.com",
       "scontent-waw1-1.xx.fbcdn.net",
       "images.unsplash.com",
+      "avatars.githubusercontent.com",
+      "lh3.googleusercontent.com",
     ],
     remotePatterns: [
       {

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import EditProductModal from "@/app/_components/editModal";
-import prisma from "../../../../lib/db";
+import prisma from "../../utils/db";
 
 const Product = async ({ params }: { params: { id: string } }) => {
   const productData = await prisma.product.findUnique({

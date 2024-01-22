@@ -8,19 +8,19 @@ const CartButtonGroup = () => {
         className="bg-gray-300 hover:bg-gray-200 text-zinc-900 text-md lg:text-lg font-medium"
         size="icon"
       >
-        +
+        -
       </Button>
       <Button
         className="bg-gray-300 hover:bg-gray-300 text-zinc-900 text-md lg:text-lg font-medium"
         size="icon"
       >
-        0
+        1
       </Button>
       <Button
         className="bg-gray-300 hover:bg-gray-200 text-zinc-900 text-md lg:text-lg font-medium"
         size="icon"
       >
-        -
+        +
       </Button>
     </div>
   );

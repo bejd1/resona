@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useTransition } from "react";
 import { Input } from "@/components/ui/input";
 import { useForm } from "react-hook-form";
@@ -17,12 +16,12 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import Divider from "@mui/material/Divider";
 import { FormSuccess } from "./formSuccess";
 import { FormError } from "./formError";
 import { login } from "@/actions/login";
+import SingInWithGoogle from "@/app/_components/singInWithGoogle";
+import SingInWithGithub from "@/app/_components/singInWithGithub";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -48,6 +47,7 @@ const LoginForm = () => {
       });
     });
   };
+
   return (
     <Form {...form}>
       <form
@@ -115,20 +115,8 @@ const LoginForm = () => {
         <FormError message={error} />
       </form>
       <FormDescription className="flex gap-2">
-        <Button
-          variant="outline"
-          className=" w-full py-5 text-black font-extrabold"
-        >
-          <FaGithub className="mr-1" />
-          Github
-        </Button>
-        <Button
-          variant="outline"
-          className="bg-white w-full py-5 text-black font-extrabold"
-        >
-          <FcGoogle className="mr-1" />
-          Google
-        </Button>
+        <SingInWithGithub />
+        <SingInWithGoogle />
       </FormDescription>
     </Form>
   );

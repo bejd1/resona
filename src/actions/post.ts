@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import prisma from "../../lib/db";
+import prisma from "../app/utils/db";
 import { dataT } from "@/types/types";
 import { Buffer } from "buffer";
 
