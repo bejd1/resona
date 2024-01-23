@@ -18,8 +18,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { Divider } from "@mui/material";
-import { FaGithub } from "react-icons/fa";
-import { FcGoogle } from "react-icons/fc";
 import { FormSuccess } from "./formSuccess";
 import { FormError } from "./formError";
 import { register } from "@/actions/register";
@@ -49,6 +47,7 @@ const RegisterForm = () => {
         setError(data.error);
         setSuccess(data.success);
       });
+      form.reset();
     });
   };
 
@@ -128,7 +127,7 @@ const RegisterForm = () => {
           className="py-5 mt-1 bg-black"
           type="submit"
         >
-          Create account
+          {!isPending ? " Create account" : "Creating..."}
         </Button>
         <FormItem className="text-center my-1 divide-y divide-blue-200">
           <Divider>or</Divider>

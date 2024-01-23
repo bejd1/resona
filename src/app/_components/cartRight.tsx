@@ -1,21 +1,24 @@
 import React from "react";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 const CartRight = () => {
   return (
-    <div className="p-4 bg-[#eff0f0]">
-      <div className="flex justify-between">
-        <p className="text-lg lg:text-xl font-medium">Total</p>
-        <p className="text-black text-lg lg:text-xl">$ 14.999</p>
-      </div>
-      <div className="flex items-center mt-4 gap-1">
-        <IoShieldCheckmark />
-        <p>Secure Delivery Guarantee</p>
-      </div>
-      <Button className="bg-black h-10 mt-3 w-full md:w-max">
-        Proceed to Payment Options
-      </Button>
+    <div>
+      <Card className="p-4">
+        <div className="flex justify-between">
+          <p className="text-lg lg:text-xl font-medium">Total</p>
+          <p className="text-black text-lg lg:text-xl">$ 14.999</p>
+        </div>
+        <div className="flex items-center mt-4 gap-1">
+          <IoShieldCheckmark />
+          <p>Secure Delivery Guarantee</p>
+        </div>
+        <Button className="bg-black h-10 mt-3 w-full md:w-max">
+          Proceed to Payment Options
+        </Button>
+      </Card>
     </div>
   );
 };
