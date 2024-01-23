@@ -3,8 +3,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import EditProductModal from "@/app/_components/editModal";
 import prisma from "../../utils/db";
+import { auth } from "@/app/utils/auth";
 
 const Product = async ({ params }: { params: { id: string } }) => {
+  const session = await auth();
   const productData = await prisma.product.findUnique({
     where: {
       id: params.id,
@@ -35,7 +37,11 @@ const Product = async ({ params }: { params: { id: string } }) => {
           <p className="text-xl md:text-2xl font-medium">
             Starting from ${productData?.prize}
           </p>
-          <EditProductModal id={productData?.id} productData={productData} />
+          {session?.user.role !== "ADMIN" ? (
+            ""
+          ) : (
+            <EditProductModal id={productData?.id} productData={productData} />
+          )}
         </div>
         <Button className="bg-black h-11 mt-3">Add to cart</Button>
       </div>
