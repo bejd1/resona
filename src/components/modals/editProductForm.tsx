@@ -5,14 +5,14 @@ import { CardFooter } from "../ui/card";
 import DeleteProduct from "./deleteProduct";
 import { Button } from "../ui/button";
 import { edit } from "@/actions/post";
-import { EditProps } from "@/types/types";
+import { EditPropsT } from "@/types/types";
 import { Divider } from "@mui/material";
 import { Textarea } from "../ui/textarea";
 import { toast } from "sonner";
 
 interface Props {
-  id: EditProps["id"];
-  productData: EditProps["productData"];
+  id: EditPropsT["id"];
+  productData: EditPropsT["productData"];
   handleClose: () => void;
 }
 
@@ -68,12 +68,12 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
               rows={4}
               defaultValue={productData?.description}
             />
-            <Label htmlFor="prize">Prize</Label>
+            <Label htmlFor="price">Price</Label>
             <Input
-              id="prize"
-              placeholder="Prize"
-              name="editPrize"
-              defaultValue={productData?.prize}
+              id="price"
+              placeholder="Price"
+              name="editPrice"
+              defaultValue={productData?.price}
             />
             <Label htmlFor="image">Url to image</Label>
             <Input

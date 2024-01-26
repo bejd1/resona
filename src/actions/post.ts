@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import prisma from "../app/utils/db";
 import { dataT } from "@/types/types";
-import { Buffer } from "buffer";
+// import { Buffer } from "buffer";
 
 export async function getData(): Promise<dataT[]> {
   const data = await prisma.product.findMany();
@@ -12,7 +12,7 @@ export async function getData(): Promise<dataT[]> {
     title: item.title,
     description: item.description,
     model: item.model,
-    prize: item.prize,
+    price: item.price,
     image: item.image as string,
     // picture: item.picture,
   }));
@@ -23,7 +23,7 @@ export async function createProductWithImage(formData: FormData) {
     const title = formData.get("title") as string;
     const model = formData.get("model") as string;
     const description = formData.get("description") as string;
-    const prize = parseFloat(formData.get("prize") as string);
+    const price = parseFloat(formData.get("price") as string);
     const image = formData.get("image") as string;
     // const pictureFile = formData.get("picture") as File;
     // const arrayBuffer = await pictureFile.arrayBuffer();
@@ -36,7 +36,7 @@ export async function createProductWithImage(formData: FormData) {
         title: title,
         model: model,
         description: description,
-        prize: prize,
+        price: price,
         image: image,
         // picture: buffer,
       },
@@ -52,7 +52,7 @@ export async function edit(formData: FormData) {
     const input = formData.get("editTitle") as string;
     const input2 = formData.get("editModel") as string;
     const input3 = formData.get("editDescription") as string;
-    const input4 = parseFloat(formData.get("editPrize") as string);
+    const input4 = parseFloat(formData.get("editprice") as string);
     const input6 = formData.get("editUrl") as string;
     // const input7 = formData.get("editPicture") as File;
 
@@ -71,7 +71,7 @@ export async function edit(formData: FormData) {
         title: input,
         model: input2,
         description: input3,
-        prize: input4,
+        price: input4,
         image: input6,
         // picture: picture,
       },

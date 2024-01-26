@@ -2,7 +2,7 @@ import * as React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import EditProductForm from "./editProductForm";
-import { EditProps } from "@/types/types";
+import { EditPropsT } from "@/types/types";
 
 type Props = {
   handleClose: () => void;
@@ -14,8 +14,8 @@ export function EditProduct({
   productData,
 }: {
   handleClose: Props["handleClose"];
-  id: EditProps["id"];
-  productData: EditProps["productData"];
+  id: EditPropsT["id"];
+  productData: EditPropsT["productData"];
 }) {
   return (
     <Card className="relative border-none">

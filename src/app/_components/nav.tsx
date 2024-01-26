@@ -1,11 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import { TbHexagonLetterR } from "react-icons/tb";
-import { CiShoppingCart } from "react-icons/ci";
 import { DrawerDemo } from "@/components/menu";
 import { Button } from "@/components/ui/button";
 import Logout from "./logout";
 import { auth } from "../utils/auth";
+import ShopingCart from "./shopingCart";
 
 interface linksI {
   label: string;
@@ -51,11 +51,7 @@ const Navbar = async () => {
         </ul>
       </div>
       <div className="flex items-center justyfy-center gap-2 md:gap-4">
-        <div className="text-[25px] md:text-[35px] cursor-pointer">
-          <Link href="cart">
-            <CiShoppingCart />
-          </Link>
-        </div>
+        <ShopingCart />
         {!session ? (
           <Link href="/login">
             <Button className=" bg-black hidden h-10 font-semibold lg:block">

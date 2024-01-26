@@ -12,6 +12,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
       id: params.id,
     },
   });
+
   return (
     <div
       key={productData?.id}
@@ -35,11 +36,9 @@ const Product = async ({ params }: { params: { id: string } }) => {
         <p className="py-3 tracking-wide">{productData?.description}</p>
         <div className="flex justify-between">
           <p className="text-xl md:text-2xl font-medium">
-            Starting from ${productData?.prize}
+            Starting from ${productData?.price}
           </p>
-          {session?.user.role !== "ADMIN" ? (
-            ""
-          ) : (
+          {session?.user.role !== "ADMIN" ? null : (
             <EditProductModal id={productData?.id} productData={productData} />
           )}
         </div>

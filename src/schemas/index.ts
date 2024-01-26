@@ -15,7 +15,7 @@ export const ProductsSchema = z.object({
   title: z.string().min(1, { message: "Title is required" }),
   model: z.string(),
   description: z.string().min(1, { message: "Description is required" }),
-  prize: z.number(),
+  price: z.number(),
   colorVariant: z.array(z.string()),
   image: z.string().optional(),
 });

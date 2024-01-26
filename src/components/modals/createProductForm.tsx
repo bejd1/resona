@@ -56,12 +56,12 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
               rows={4}
               required
             />
-            <Label htmlFor="prize">Prize</Label>
+            <Label htmlFor="price">Price</Label>
             <Input
               type="number"
-              id="prize"
-              placeholder="Prize"
-              name="prize"
+              id="price"
+              placeholder="Price"
+              name="price"
               required
             />
             <Label htmlFor="image">Url to image</Label>

@@ -3,20 +3,29 @@ export type dataT = {
   title: string | undefined;
   description: string | undefined;
   model: string | undefined;
-  prize: number | undefined;
+  price: number | undefined;
   image?: string | undefined;
   picture?: Buffer | null;
 };
 
-export interface EditProps {
+export type EditPropsT = {
   productData: {
     id: string;
     title: string;
     model: string;
     description: string;
-    prize: number;
+    price: number;
     image?: string | null;
     picture?: Buffer | null;
   } | null;
   id: string | undefined;
+};
+
+export interface Product {
+  id: string;
+  title: string;
+  description: string;
+  model: string;
+  price: number;
+  image: string;
 }
