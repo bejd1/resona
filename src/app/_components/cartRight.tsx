@@ -3,13 +3,13 @@ import { IoShieldCheckmark } from "react-icons/io5";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-const CartRight = () => {
+const CartRight = ({ totalPrice }: { totalPrice: number }) => {
   return (
     <div>
       <Card className="p-4">
         <div className="flex justify-between">
           <p className="text-lg lg:text-xl font-medium">Total</p>
-          <p className="text-black text-lg lg:text-xl">$ 14.999</p>
+          <p className="text-black text-lg lg:text-xl">${totalPrice}</p>
         </div>
         <div className="flex items-center mt-4 gap-1">
           <IoShieldCheckmark />

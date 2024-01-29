@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import EditProductModal from "@/app/_components/editModal";
 import prisma from "../../utils/db";
 import { auth } from "@/app/utils/auth";
+import AddToCartButton from "@/app/_components/addToCartButton";
 
 const Product = async ({ params }: { params: { id: string } }) => {
   const session = await auth();
@@ -12,6 +12,8 @@ const Product = async ({ params }: { params: { id: string } }) => {
       id: params.id,
     },
   });
+
+  const image: string | undefined = productData?.image!;
 
   return (
     <div
@@ -42,7 +44,14 @@ const Product = async ({ params }: { params: { id: string } }) => {
             <EditProductModal id={productData?.id} productData={productData} />
           )}
         </div>
-        <Button className="bg-black h-11 mt-3">Add to cart</Button>
+        <AddToCartButton
+          id={productData?.id}
+          title={productData?.title}
+          description={productData?.description}
+          price={productData?.price}
+          model={productData?.model}
+          image={image}
+        />
       </div>
     </div>
   );

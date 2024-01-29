@@ -10,7 +10,7 @@ import {
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
-import BurgerBtn from "@/app/_components/burgerBtn";
+import BurgerButton from "@/app/_components/burgerButton";
 import { Divider } from "@mui/material";
 
 interface linksI {
@@ -40,7 +40,7 @@ export function DrawerDemo() {
   return (
     <Drawer>
       <DrawerTrigger>
-        <BurgerBtn />
+        <BurgerButton />
       </DrawerTrigger>
       <DrawerContent style={{ position: "fixed", top: 0, width: "100%" }}>
         <div className="flex items-center justify-center h-full">

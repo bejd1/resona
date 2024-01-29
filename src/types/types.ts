@@ -4,7 +4,7 @@ export type dataT = {
   description: string | undefined;
   model: string | undefined;
   price: number | undefined;
-  image?: string | undefined;
+  image: string | undefined;
   picture?: Buffer | null;
 };
 
@@ -15,10 +15,14 @@ export type EditPropsT = {
     model: string;
     description: string;
     price: number;
-    image?: string | null;
+    image: string | null;
     picture?: Buffer | null;
   } | null;
   id: string | undefined;
+};
+
+export type CartProduct = dataT & {
+  quantity: number;
 };
 
 export interface Product {

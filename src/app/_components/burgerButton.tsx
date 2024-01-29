@@ -1,7 +1,7 @@
 import React from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-const BurgerBtn = () => {
+const BurgerButton = () => {
   return (
     <div className="text-black block lg:hidden text-[25px] sm:text-[33px] cursor-pointer">
       <GiHamburgerMenu />
@@ -9,4 +9,4 @@ const BurgerBtn = () => {
   );
 };
 
-export default BurgerBtn;
+export default BurgerButton;
