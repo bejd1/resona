@@ -10,7 +10,7 @@ const ShopingCart = () => {
   return (
     <div className="relative md:mr-2">
       <div className="text-[30px] md:text-[35px] cursor-pointer">
-        <Link href="cart">
+        <Link href="/cart">
           <CiShoppingCart />
         </Link>
       </div>

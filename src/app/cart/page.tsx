@@ -10,11 +10,11 @@ const Cart = () => {
   const { cart, totalCartPrice, totalIndividualPrice } = useCartStore();
   const totalPrice = totalCartPrice();
   return (
-    <div className="py-6 md:py-12 px-4 md:px-8 lg:px-12 xl:px-20 h-[86vh] md:h-[82vh] min-h-max">
+    <div className="py-6 md:py-12 px-4 md:px-8 lg:px-12 xl:px-20 max-h-max">
       {cart.length === 0 ? (
         <EmptyCart />
       ) : (
-        <div>
+        <div className="min-h-[80vh]">
           <h1 className="flex place-items-start text-2xl md:text-4xl font-extrabold mb-2">
             Your Cart
           </h1>

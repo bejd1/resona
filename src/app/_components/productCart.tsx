@@ -12,11 +12,12 @@ const ProductCart = ({ items }: { items: dataT }) => {
     <div key={id}>
       <Link href={`/products/${id}`} scroll={true}>
         <div className="tracking-wider hover:underline w-full">
-          <div className="">
+          <div>
             <Image
               src={image || ""}
               width={800}
               height={200}
+              style={{ borderRadius: "8px" }}
               className="lg:h-[600px] md:object-cover"
               alt="Product picture"
             />

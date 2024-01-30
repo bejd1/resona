@@ -61,7 +61,6 @@ const Navbar = async () => {
         ) : (
           <Logout />
         )}
-
         <DrawerDemo />
       </div>
     </div>

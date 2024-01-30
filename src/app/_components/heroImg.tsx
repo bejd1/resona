@@ -47,6 +47,7 @@ const HeroImg = () => {
           width={1000}
           height={1000}
           src={img}
+          priority
           alt="Hero img"
         />
         <div
