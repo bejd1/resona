@@ -12,17 +12,21 @@ import { FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import BurgerButton from "@/app/_components/burgerButton";
 import { Divider } from "@mui/material";
+import { auth } from "@/app/utils/auth";
+import LogoutMenu from "@/app/_components/logoutMenu";
 
 interface linksI {
-  label: string;
+  label: string | React.ReactNode;
   href: string;
 }
 
-export function DrawerDemo() {
+export async function DrawerDemo() {
+  const session = await auth();
+
   const links: linksI[] = [
     {
-      label: "LOGIN",
-      href: "/login",
+      label: session ? <LogoutMenu /> : "LOGIN",
+      href: session ? "/" : "/login",
     },
     {
       label: "HOME",

@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 
 const CartRight = ({ totalPrice }: { totalPrice: number }) => {
   return (
-    <div>
+    <div className="w-full">
       <Card className="p-4">
         <div className="flex justify-between">
           <p className="text-lg lg:text-xl font-medium">Total</p>

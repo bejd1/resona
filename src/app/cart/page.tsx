@@ -19,7 +19,7 @@ const Cart = () => {
             Your Cart
           </h1>
           <div className="w-full h-[1px] bg-black mb-8 md:mb-16"></div>
-          <div className="flex flex-col lg:grid grid-cols-3 relative gap-4">
+          <div className="flex flex-col gap-4 relative">
             {cart.map((item) => {
               return (
                 <CartLeft
@@ -29,7 +29,7 @@ const Cart = () => {
                 />
               );
             })}
-            <div className="max-h-max">
+            <div className="lg:absolute lg:top-0 lg:right-0 lg:w-[27%]">
               <CartRight totalPrice={totalPrice} />
             </div>
           </div>

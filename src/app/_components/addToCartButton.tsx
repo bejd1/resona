@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Product, useCartStore } from "@/store/cart";
-import React from "react";
+import React, { useTransition } from "react";
 
 const AddToCartButton: React.FC<Product> = ({
   id,
@@ -13,14 +13,28 @@ const AddToCartButton: React.FC<Product> = ({
 }: Product) => {
   const { add: handleAddToCart } = useCartStore();
   const product = { id, image, title, description, price, model } as Product;
+  const [isPending, startTransition] = useTransition();
+
+  const handleEditSubmit = async () => {
+    await startTransition(() => {});
+  };
 
   return (
-    <Button
-      onClick={() => handleAddToCart(product)}
-      className="bg-black h-11 mt-3"
+    <form
+      onSubmit={async (e) => {
+        e.preventDefault();
+        await handleEditSubmit();
+      }}
     >
-      Add to cart
-    </Button>
+      <Button
+        disabled={isPending}
+        type="submit"
+        onClick={() => handleAddToCart(product)}
+        className="bg-black h-11 mt-3 w-full sm:w-40"
+      >
+        {isPending ? "Adding..." : "Add to cart"}
+      </Button>
+    </form>
   );
 };
 

@@ -15,7 +15,7 @@ const notFound = () => {
       </div>
       <Button
         onClick={() => router.back()}
-        className="bg-black h-10 mt-3 w-32 sm:w-40 font-bold"
+        className="bg-black h-10 mt-3 w-32 sm:w-40"
       >
         Back
       </Button>
