@@ -32,7 +32,7 @@ const Newsletter = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Button type="submit" className=" bg-black h-11 mt-3 w-full md:w-40">
+          <Button type="submit" className="h-11 mt-3 w-full md:w-40">
             Subscribe
           </Button>
         </form>

@@ -28,9 +28,7 @@ const NewProducts = () => {
             lifetime.
           </p>
           <Link href="/products">
-            <Button className=" bg-black h-10 mt-3 w-full sm:w-40">
-              Products
-            </Button>
+            <Button className="h-10 mt-3 w-full sm:w-40">Products</Button>
           </Link>
         </div>
       </div>

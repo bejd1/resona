@@ -30,7 +30,7 @@ const AddToCartButton: React.FC<Product> = ({
         disabled={isPending}
         type="submit"
         onClick={() => handleAddToCart(product)}
-        className="bg-black h-11 mt-5 w-full sm:w-40"
+        className="h-11 mt-5 w-full sm:w-40"
       >
         {isPending ? "Adding..." : "Add to cart"}
       </Button>

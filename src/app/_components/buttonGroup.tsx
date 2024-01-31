@@ -26,8 +26,9 @@ const CartButtonGroup = ({
   return (
     <div className="flex gap-1 mt-1">
       <Button
+        variant="buttongroup"
         onClick={handleDecrease}
-        className="bg-black text-white text-md lg:text-lg font-medium"
+        className="bg-black  text-white text-md lg:text-lg font-medium"
         size="icon"
       >
         -
@@ -39,8 +40,9 @@ const CartButtonGroup = ({
         {count}
       </Button>
       <Button
+        variant="buttongroup"
         onClick={handleIncrease}
-        className="bg-black text-white text-md lg:text-lg font-medium"
+        className="text-white text-md lg:text-lg font-medium"
         size="icon"
       >
         +

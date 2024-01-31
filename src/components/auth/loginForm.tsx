@@ -101,11 +101,7 @@ const LoginForm = () => {
             </Link>
           </FormLabel>
         </FormItem>
-        <Button
-          disabled={isPending}
-          className="py-5 mt-1 bg-black"
-          type="submit"
-        >
+        <Button disabled={isPending} className="py-5 mt-1" type="submit">
           Login
         </Button>
         <FormItem className="text-center my-1 divide-y divide-blue-200">

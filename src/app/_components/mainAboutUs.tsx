@@ -22,7 +22,6 @@ const MainAboutUs = () => {
         </p>
       </div>
       <div className="flex items-center justify-center">
-        {/* <div className="w-full md:w-[500px]"> */}
         <Image
           src={img}
           width={500}

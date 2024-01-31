@@ -54,7 +54,7 @@ const Navbar = async () => {
         <ShopingCart />
         {!session ? (
           <Link href="/login">
-            <Button className=" bg-black hidden h-10 font-semibold lg:block">
+            <Button className="hidden h-10 font-semibold lg:block">
               SIGN UP
             </Button>
           </Link>

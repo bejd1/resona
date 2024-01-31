@@ -15,7 +15,7 @@ const CartRight = ({ totalPrice }: { totalPrice: number }) => {
           <IoShieldCheckmark />
           <p>Secure Delivery Guarantee</p>
         </div>
-        <Button className="bg-black h-10 mt-3 w-full md:w-max">
+        <Button variant="buttongroup" className="h-10 mt-3 w-full md:w-max">
           Proceed to Payment Options
         </Button>
       </Card>
