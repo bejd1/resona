@@ -42,7 +42,7 @@ export async function createProductWithImage(formData: FormData) {
       },
     });
   } catch (error) {
-    console.error("Błąd podczas tworzenia produktu z obrazem:", error);
+    console.error("Error creating product from image:", error);
   }
 }
 
@@ -79,7 +79,7 @@ export async function edit(formData: FormData) {
 
     revalidatePath("/products");
   } catch (error) {
-    console.error("Błąd podczas edycji produktu:", error);
+    console.error("Error while editing the product:", error);
   }
 }
 

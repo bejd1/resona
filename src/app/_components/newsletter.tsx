@@ -1,17 +1,30 @@
 "use client";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { startTransition, useRef, useState, useTransition } from "react";
 import img from "../../img/newsletterImg.jpg";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { send } from "@/actions/sendNewsletter";
+import { toast } from "sonner";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
+  const [isPending, startTransition] = useTransition();
+  const ref = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(email);
-    setEmail("");
+  const handleCreateSubmit = async (formData: FormData) => {
+    try {
+      await send(formData);
+
+      startTransition(() => {});
+
+      toast("Success!", {
+        description: "You subscribed to the newsletter",
+      });
+      ref.current?.reset();
+    } catch (error) {
+      console.error("Subscribe newsletter error:", error);
+    }
   };
 
   return (
@@ -24,11 +37,13 @@ const Newsletter = () => {
           Subscribe to our newsletter to receive up-to-date information on new
           products, promotions, and current events.
         </p>
-        <form onSubmit={handleSubmit}>
+        <form action={send}>
           <Input
             className="h-11"
             placeholder="youremail@email.com"
             type="email"
+            name="email"
+            required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />

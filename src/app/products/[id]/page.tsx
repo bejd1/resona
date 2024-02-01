@@ -14,6 +14,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
   });
 
   const image: string | undefined = productData?.image!;
+  const price: number | undefined = productData?.price!;
 
   return (
     <div
@@ -26,6 +27,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
           width={700}
           height={700}
           style={{ borderRadius: "8px" }}
+          priority
           alt="Product picture"
         />
       </div>
@@ -49,7 +51,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
           id={productData?.id}
           title={productData?.title}
           description={productData?.description}
-          price={productData?.price}
+          price={price}
           model={productData?.model}
           image={image}
         />
