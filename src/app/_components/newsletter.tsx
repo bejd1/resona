@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
-import React, { startTransition, useRef, useState, useTransition } from "react";
+import React, { useRef, useState, useTransition } from "react";
 import img from "../../img/newsletterImg.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { send } from "@/actions/sendNewsletter";
 import { toast } from "sonner";
+import Loader from "./loader";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
@@ -47,8 +48,12 @@ const Newsletter = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Button type="submit" className="h-11 mt-3 w-full md:w-40">
-            Subscribe
+          <Button
+            disabled={isPending}
+            type="submit"
+            className="h-11 mt-3 w-full md:w-40"
+          >
+            {isPending ? <Loader text={"Subscribe"} /> : "Subscribe"}
           </Button>
         </form>
       </div>

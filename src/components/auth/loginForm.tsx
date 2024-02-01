@@ -22,6 +22,7 @@ import { FormError } from "./formError";
 import { login } from "@/actions/login";
 import SingInWithGoogle from "@/app/_components/singInWithGoogle";
 import SingInWithGithub from "@/app/_components/singInWithGithub";
+import Loader from "@/app/_components/loader";
 
 const LoginForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -102,7 +103,7 @@ const LoginForm = () => {
           </FormLabel>
         </FormItem>
         <Button disabled={isPending} className="py-5 mt-1" type="submit">
-          Login
+          {isPending ? <Loader text={"Login"} /> : "Login"}
         </Button>
         <FormItem className="text-center my-1 divide-y divide-blue-200">
           <Divider>or</Divider>

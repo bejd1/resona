@@ -23,6 +23,7 @@ import { FormError } from "./formError";
 import { register } from "@/actions/register";
 import SingInWithGithub from "@/app/_components/singInWithGithub";
 import SingInWithGoogle from "@/app/_components/singInWithGoogle";
+import Loader from "@/app/_components/loader";
 
 const RegisterForm = () => {
   const [error, setError] = useState<string | undefined>("");
@@ -123,7 +124,7 @@ const RegisterForm = () => {
         </FormItem>
 
         <Button disabled={isPending} className="py-5 mt-1" type="submit">
-          {!isPending ? " Create account" : "Creating..."}
+          {isPending ? <Loader text={"Create account"} /> : "Create account"}
         </Button>
         <FormItem className="text-center my-1 divide-y divide-blue-200">
           <Divider>or</Divider>

@@ -9,6 +9,7 @@ import { EditPropsT } from "@/types/types";
 import { Divider } from "@mui/material";
 import { Textarea } from "../ui/textarea";
 import { toast } from "sonner";
+import Loader from "@/app/_components/loader";
 
 interface Props {
   id: EditPropsT["id"];
@@ -92,7 +93,7 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
                 type="submit"
                 className="bg-black w-full"
               >
-                {isPending ? "Editing..." : "Edit"}
+                {isPending ? <Loader text={"Edit"} /> : "Edit"}
               </Button>
             </CardFooter>
             <Divider>or</Divider>

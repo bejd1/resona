@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Product, useCartStore } from "@/store/cart";
 import React, { useTransition } from "react";
+import Loader from "./loader";
 
 const AddToCartButton: React.FC<Product> = ({
   id,
@@ -32,7 +33,7 @@ const AddToCartButton: React.FC<Product> = ({
         onClick={() => handleAddToCart(product)}
         className="h-11 mt-5 w-full sm:w-40"
       >
-        {isPending ? "Adding..." : "Add to cart"}
+        {isPending ? <Loader text={"Add to cart"} /> : "Add to cart"}
       </Button>
     </form>
   );

@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { createProductWithImage } from "@/actions/post";
 import { Textarea } from "../ui/textarea";
 import { toast } from "sonner";
+import Loader from "@/app/_components/loader";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const ref = useRef<HTMLFormElement>(null);
@@ -78,7 +79,7 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
               type="submit"
               className="bg-black w-full"
             >
-              {isPending ? "Creating..." : "Create"}
+              {isPending ? <Loader text={"Create"} /> : "Create"}
             </Button>
           </div>
         </div>
