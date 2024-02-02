@@ -10,40 +10,38 @@ import Loader from "./loader";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
-  const [error, setError] = useState<string | undefined>("");
-  const [success, setSuccess] = useState<string | undefined>("");
+  const [error, setError] = useState<string | undefined>(
+    "Email already in use"
+  );
+  const [success, setSuccess] = useState<string | undefined>(
+    "Success, you have subscribed to the newsletter"
+  );
   const [isPending, startTransition] = useTransition();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setError("");
-    setSuccess("");
 
     try {
       startTransition(async () => {
         const data = await send(new FormData(e.currentTarget));
-        if (data.error) {
-          setError(data.error);
-        } else {
+        if (!data.error) {
+          setEmail("");
           setSuccess(data.success);
+          toast("Success!", {
+            description: success,
+            style: { backgroundColor: "#dbf5ec", color: "#10b981" },
+          });
+        } else {
+          setError(data.error);
+          toast("Error", {
+            description: error,
+            style: { backgroundColor: "#fde3e3", color: "#f14444" },
+          });
         }
       });
-      if (!error) {
-        setEmail("");
-        toast("Success!", {
-          description: success,
-          style: { backgroundColor: "#dbf5ec", color: "#10b981" },
-        });
-      } else {
-        toast("Error", {
-          description: error,
-          style: { backgroundColor: "#fde3e3", color: "#f14444" },
-        });
-      }
     } catch (error) {
       console.error("Error submitting newsletter:", error);
       setError("An error occurred while submitting the newsletter");
-    } finally {
     }
   };
   return (

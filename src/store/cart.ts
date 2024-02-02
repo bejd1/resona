@@ -38,6 +38,14 @@ export const useCartStore = create<CartStore>()(
             .reduce((prev, curr) => prev + curr);
         return 0;
       },
+      // count: () => {
+      //   const { cart } = get();
+      //   let totalCount = 0;
+      //   for (const item of cart) {
+      //     totalCount += item.count;
+      //   }
+      //   return totalCount;
+      // },
       totalIndividualPrice: (id: string) => {
         const { cart } = get();
         const item = cart.find((item) => item.id === id);
