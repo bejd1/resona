@@ -29,6 +29,7 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
       });
       toast("Success!", {
         description: "You have successfully updated your product",
+        style: { backgroundColor: "#dbf5ec", color: "#10b981" },
       });
     } catch (error) {
       console.error("Edit function failed", error);

@@ -21,6 +21,7 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
 
       toast("Success!", {
         description: "You have successfully create your product",
+        style: { backgroundColor: "#dbf5ec", color: "#10b981" },
       });
       ref.current?.reset();
     } catch (error) {

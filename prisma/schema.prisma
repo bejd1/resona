@@ -52,3 +52,8 @@ model Product {
   image         String?
   picture       Bytes?
 }
+
+model Newsletter {
+ id            String    @id @default(cuid()) 
+ email         String   @unique
+}

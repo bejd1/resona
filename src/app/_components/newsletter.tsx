@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useRef, useState, useTransition } from "react";
+import React, { useState, useTransition } from "react";
 import img from "../../img/newsletterImg.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,24 +10,42 @@ import Loader from "./loader";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string | undefined>("");
+  const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
-  const ref = useRef<HTMLFormElement>(null);
 
-  const handleCreateSubmit = async (formData: FormData) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+    setSuccess("");
+
     try {
-      await send(formData);
-
-      startTransition(() => {});
-
-      toast("Success!", {
-        description: "You subscribed to the newsletter",
+      startTransition(async () => {
+        const data = await send(new FormData(e.currentTarget));
+        if (data.error) {
+          setError(data.error);
+        } else {
+          setSuccess(data.success);
+        }
       });
-      ref.current?.reset();
+      if (!error) {
+        setEmail("");
+        toast("Success!", {
+          description: success,
+          style: { backgroundColor: "#dbf5ec", color: "#10b981" },
+        });
+      } else {
+        toast("Error", {
+          description: error,
+          style: { backgroundColor: "#fde3e3", color: "#f14444" },
+        });
+      }
     } catch (error) {
-      console.error("Subscribe newsletter error:", error);
+      console.error("Error submitting newsletter:", error);
+      setError("An error occurred while submitting the newsletter");
+    } finally {
     }
   };
-
   return (
     <div className="mt-12 mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
       <div className="flex flex-col justify-center w-4/5 sm:w-80 md:w-96">
@@ -38,7 +56,7 @@ const Newsletter = () => {
           Subscribe to our newsletter to receive up-to-date information on new
           products, promotions, and current events.
         </p>
-        <form action={send}>
+        <form onSubmit={handleSubmit}>
           <Input
             className="h-11"
             placeholder="youremail@email.com"

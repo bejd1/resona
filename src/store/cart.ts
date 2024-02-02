@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 export type Product = {
   id: string | undefined;
@@ -25,45 +26,52 @@ type CartStore = {
   removeAll: () => void;
 };
 
-export const useCartStore = create<CartStore>((set, get) => ({
-  cart: [],
-  count: () => {
-    const { cart } = get();
-    if (cart.length)
-      return cart.map((item) => item.count).reduce((prev, curr) => prev + curr);
-    return 0;
-  },
-  totalIndividualPrice: (id: string) => {
-    const { cart } = get();
-    const item = cart.find((item) => item.id === id);
-    return item ? item.price * item.count : 0;
-  },
-  totalCartPrice: () => {
-    const { cart } = get();
-    return cart.reduce((total, item) => total + item.price * item.count, 0);
-  },
-  add: (product: Product) => {
-    const { cart } = get();
-    const updatedCart = updateCart(product, cart);
-    set({ cart: updatedCart });
-  },
-  increase: (id: string) => {
-    const { cart } = get();
-    const updatedCart = updateQuantity(id, cart, 1);
-    set({ cart: updatedCart as CartItem[] });
-  },
-  decrease: (id: string) => {
-    const { cart } = get();
-    const updatedCart = updateQuantity(id, cart, -1, true);
-    set({ cart: updatedCart as CartItem[] });
-  },
-  remove: (id: string) => {
-    const { cart } = get();
-    const updatedCart = removeCart(id, cart);
-    set({ cart: updatedCart });
-  },
-  removeAll: () => set({ cart: [] }),
-}));
+export const useCartStore = create<CartStore>()(
+  persist(
+    (set, get) => ({
+      cart: [],
+      count: () => {
+        const { cart } = get();
+        if (cart.length)
+          return cart
+            .map((item) => item.count)
+            .reduce((prev, curr) => prev + curr);
+        return 0;
+      },
+      totalIndividualPrice: (id: string) => {
+        const { cart } = get();
+        const item = cart.find((item) => item.id === id);
+        return item ? item.price * item.count : 0;
+      },
+      totalCartPrice: () => {
+        const { cart } = get();
+        return cart.reduce((total, item) => total + item.price * item.count, 0);
+      },
+      add: (product: Product) => {
+        const { cart } = get();
+        const updatedCart = updateCart(product, cart);
+        set({ cart: updatedCart });
+      },
+      increase: (id: string) => {
+        const { cart } = get();
+        const updatedCart = updateQuantity(id, cart, 1);
+        set({ cart: updatedCart as CartItem[] });
+      },
+      decrease: (id: string) => {
+        const { cart } = get();
+        const updatedCart = updateQuantity(id, cart, -1, true);
+        set({ cart: updatedCart as CartItem[] });
+      },
+      remove: (id: string) => {
+        const { cart } = get();
+        const updatedCart = removeCart(id, cart);
+        set({ cart: updatedCart });
+      },
+      removeAll: () => set({ cart: [] }),
+    }),
+    { name: "cartGlobal", storage: createJSONStorage(() => sessionStorage) }
+  )
+);
 
 function updateCart(product: Product, cart: CartItem[]): CartItem[] {
   const cartItem = { ...product, count: 1 } as CartItem;
