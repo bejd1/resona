@@ -6,6 +6,7 @@ import Footer from "./_components/footer";
 import favicon from "./favicon.ico";
 import Scroll from "./_components/scroll";
 import { Toaster } from "@/components/ui/sonner";
+import Provider from "@/util/provider";
 
 const newIcon = favicon.src;
 
@@ -31,12 +32,14 @@ export default function RootLayout({
       </head>
       <Scroll />
       <body className={poppins.className}>
-        <div className="sticky top-0 z-[100] bg-white">
-          <Navbar />
-        </div>
-        {children}
-        <Toaster />
-        <Footer />
+        <Provider>
+          <div className="sticky top-0 z-[100] bg-white">
+            <Navbar />
+          </div>
+          {children}
+          <Toaster />
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

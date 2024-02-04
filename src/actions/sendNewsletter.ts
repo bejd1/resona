@@ -14,11 +14,10 @@ export async function send(formData: FormData) {
     where: { email },
   });
 
+  if (existingUser) {
+    return { error: "Email already in use" };
+  }
   try {
-    if (existingUser) {
-      return { error: "Email already in use" };
-    }
-
     await prisma.newsletter.create({
       data: {
         email: email,
@@ -26,9 +25,10 @@ export async function send(formData: FormData) {
     });
 
     const { data } = await resend.emails.send({
-      from: "onboarding@resend.dev",
+      // from: "Resona newsletter <resonateam@resona.com>",
+      from: "Resona newsletter <onboarding@resend.dev>",
       to: email,
-      subject: "Resona Team",
+      subject: "Resona Team newsletter",
       react: NewsletterEmail(),
     });
 

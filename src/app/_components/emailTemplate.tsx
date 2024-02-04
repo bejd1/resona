@@ -16,7 +16,7 @@ export const NewsletterEmail = () => (
   <Html>
     <Head />
     <Preview>Curiosities and novelties in the Resona store.</Preview>
-    <Body style={main}>
+    <Body style={main} className="text-black">
       <Container style={container}>
         <Img
           src="https://cdn.discordapp.com/attachments/1182760469459632179/1202400548154908722/resona-logo.png?ex=65cd51c6&is=65badcc6&hm=4d7d6af3bc08326b24658e9b6cbd09b5344059010839ff92b906df4d00fb5c0f&"

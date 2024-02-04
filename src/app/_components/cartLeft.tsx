@@ -28,6 +28,7 @@ const CartLeft: React.FC<CartLeftProps> = ({ item, totalIndividualPrice }) => {
                 width="0"
                 height="0"
                 sizes="100vw"
+                priority
                 className="w-3/5 sm:w-[200px] h-auto"
                 src={img}
                 style={{ borderRadius: "8px" }}
