@@ -2,12 +2,18 @@
 
 import { useCartStore } from "@/store/cart";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { CiShoppingCart } from "react-icons/ci";
 
 const ShopingCart = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const { count } = useCartStore();
 
+  useEffect(() => {
+    setIsMounted(true);
+  });
+
+  if (!isMounted) return;
   return (
     <div className="relative md:mr-2">
       <div className="text-[30px] md:text-[35px] cursor-pointer">
