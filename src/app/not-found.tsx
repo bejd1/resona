@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const notFound = () => {
+const NotFound = () => {
   const router = useRouter();
   return (
     <div className="h-[86vh] md:h-[82vh] flex flex-col items-center justify-center pb-20">
@@ -23,4 +23,4 @@ const notFound = () => {
   );
 };
 
-export default notFound;
+export default NotFound;
