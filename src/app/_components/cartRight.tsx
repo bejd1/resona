@@ -1,7 +1,11 @@
+"use client";
+
 import React from "react";
 import { IoShieldCheckmark } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import PreviewPage from "./checkoutPage";
 
 const CartRight = ({ totalPrice }: { totalPrice: number }) => {
   return (
@@ -15,6 +19,12 @@ const CartRight = ({ totalPrice }: { totalPrice: number }) => {
           <IoShieldCheckmark />
           <p>Secure Delivery Guarantee</p>
         </div>
+        <PreviewPage />
+        <Link href="https://buy.stripe.com/test_28o7tu7eVa27cI85kk">
+          <Button variant="buttongroup" className="h-10 mt-3 w-full md:w-max">
+            tester{" "}
+          </Button>
+        </Link>
         <Button variant="buttongroup" className="h-10 mt-3 w-full md:w-max">
           Proceed to Payment Options
         </Button>

@@ -28,7 +28,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/utils/mongodb/mongodb.js",
-    "src/app/_stripe/page.js"
+    "src/app/_stripe/page.js",
+    "src/app/api/checkout/route.js"
   ],
   "exclude": ["node_modules"]
 }

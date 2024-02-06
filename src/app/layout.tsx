@@ -6,7 +6,7 @@ import Footer from "./_components/footer";
 import favicon from "./favicon.ico";
 import Scroll from "./_components/scroll";
 import { Toaster } from "@/components/ui/sonner";
-import Provider from "@/util/provider";
+import Provider from "@/app/utils/provider";
 
 const newIcon = favicon.src;
 

@@ -28,7 +28,7 @@ export async function send(formData: FormData) {
       // from: "Resona newsletter <resonateam@resona.com>",
       from: "Resona newsletter <onboarding@resend.dev>",
       to: email,
-      subject: "Resona Team newsletter",
+      subject: "Resona Team - Newsletter",
       react: NewsletterEmail(),
     });
 
