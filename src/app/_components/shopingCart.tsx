@@ -11,7 +11,7 @@ const ShopingCart = () => {
 
   useEffect(() => {
     setIsMounted(true);
-  });
+  }, []);
 
   if (!isMounted) return;
   return (
