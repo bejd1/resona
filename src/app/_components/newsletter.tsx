@@ -45,7 +45,7 @@ const Newsletter = () => {
     }
   };
   return (
-    <div className="mt-12 mb-20 px-4 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
+    <div className="mt-12 mb-20 md:px-24 w-full flex flex-col md:flex-row gap-10 justify-center md:justify-around items-center">
       <div className="flex flex-col justify-center w-4/5 sm:w-80 md:w-96">
         <h2 className="text-2xl md:text-4xl my-2 font-black">
           Join music and engineering enthusiasts!
@@ -56,7 +56,7 @@ const Newsletter = () => {
         </p>
         <form onSubmit={handleSubmit}>
           <Input
-            className="h-11"
+            className="h-11 border-zinc-500"
             placeholder="youremail@email.com"
             type="email"
             name="email"

@@ -42,7 +42,7 @@ const HeroImg = () => {
     <div className="max-h-[150px] md:max-h-[220px] lg:max-h-[300px] xl:max-h-[400px] 2xl:max-h-[550px] w-full overflow-hidden mb-4 md:mb-12 px-2 md:px-8">
       <div className="relative w-full">
         <Image
-          className="w-full h-full transform transition-transform sm:transform-none ease-out duration-300"
+          className="w-full h-full transform transition-transform sm:transform-none ease-out duration-300 z-[-2]"
           style={{ transform: transformStyle }}
           width={1000}
           height={1000}
@@ -51,11 +51,10 @@ const HeroImg = () => {
           alt="Hero img"
         />
         <div
-          className="absolute w-full top-0 h-full"
+          className="absolute w-full top-0 h-full z-[0]"
           style={{
             background: "rgba(0, 0, 0, 0.5)",
             pointerEvents: "none",
-            zIndex: "1",
           }}
         />
       </div>

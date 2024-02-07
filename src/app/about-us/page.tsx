@@ -94,7 +94,7 @@ const AboutUs = () => {
           </p>
         </div>
       </div>
-      <p className="my-8 text-xl font-extrabold">
+      <p className="my-8 text-xl font-extrabold underline underline-offset-4">
         Resona - Your window to modern electronics, where innovation meets
         reliability.
       </p>

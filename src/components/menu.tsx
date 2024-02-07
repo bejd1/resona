@@ -66,7 +66,7 @@ export async function DrawerDemo() {
         </div>
         <Divider />
         <DrawerFooter>
-          <div className="flex items-center justify-center gap-6">
+          <div className="flex items-center justify-center gap-10">
             <Link
               className="flex items-center text-2xl hover:text-gray-800 ease-in-out duration-300"
               href="https://www.linkedin.com/in/filip-bajdan-a6393b273/"

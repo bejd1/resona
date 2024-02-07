@@ -30,10 +30,11 @@ export default function RootLayout({
       <head>
         <link rel="icon" href={newIcon} />
       </head>
-      {/* <Scroll /> */}
+      <Scroll />
       <body className={poppins.className}>
         <Provider>
-          <div className="sticky top-0 z-[100] bg-white">
+          <div className="sticky top-0 z-[1] bg-white">
+            {/* <div className="sticky top-0 z-[100] bg-white"> */}
             <Navbar />
           </div>
           {children}

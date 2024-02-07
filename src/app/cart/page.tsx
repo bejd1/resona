@@ -5,6 +5,9 @@ import CartLeft from "../_components/cartLeft";
 import CartRight from "../_components/cartRight";
 import { useCartStore } from "@/store/cart";
 import EmptyCart from "../_components/emptyCart";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import ContinueCart from "../_components/continueCart";
 
 const Cart = () => {
   const { cart, totalCartPrice, totalIndividualPrice } = useCartStore();
@@ -33,6 +36,7 @@ const Cart = () => {
               <CartRight totalPrice={totalPrice} />
             </div>
           </div>
+          <ContinueCart />
         </div>
       )}
     </div>
