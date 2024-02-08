@@ -10,7 +10,7 @@ const ProductCart = ({ items }: { items: dataT }) => {
 
   return (
     <div key={id}>
-      <Link href={`/products/${id}`} scroll={true}>
+      <Link href={`/products/${id}`}>
         <div className="tracking-wider hover:underline w-full">
           <div>
             <Image
@@ -20,7 +20,7 @@ const ProductCart = ({ items }: { items: dataT }) => {
               style={{ borderRadius: "8px" }}
               priority
               className="lg:h-[600px] md:object-cover"
-              alt="Product picture"
+              alt={`Product picture ${title} `}
             />
           </div>
           <h3 className="font-bold text-md md:text-xl py-1">{title}</h3>

@@ -6,7 +6,7 @@ import React, { useEffect } from "react";
 const Scroll = () => {
   const pathname = usePathname();
   useEffect(() => {
-    window.scroll(0, 0);
+    window.scroll({ top: 0, behavior: "auto" });
   }, [pathname]);
   return <></>;
 };

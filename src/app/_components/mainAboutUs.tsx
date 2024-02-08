@@ -21,7 +21,7 @@ const MainAboutUs = () => {
           meticulously designed interior of our devices.
         </p>
       </div>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center lg:w-[500px]">
         <Image
           src={img}
           width={400}

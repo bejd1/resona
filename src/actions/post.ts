@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import prisma from "../app/utils/db";
 import { dataT } from "@/types/types";
 
@@ -85,8 +85,7 @@ export async function deleteItem(formData: FormData) {
           id: inputId,
         },
       });
-
-      revalidatePath("/products");
+      revalidatePath(`/products/${inputId}`);
     } else {
       console.error(`Product with ID ${inputId} not found`);
     }

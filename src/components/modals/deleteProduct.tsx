@@ -1,7 +1,6 @@
 import React, { useTransition } from "react";
 import { Button } from "../ui/button";
 import { deleteItem } from "@/actions/post";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 const DeleteProduct = ({
   id,
@@ -10,7 +9,6 @@ const DeleteProduct = ({
   id: string | undefined;
   handleClose: () => void;
 }) => {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const handleDeleteSubmit = async (formData: FormData) => {
@@ -22,11 +20,11 @@ const DeleteProduct = ({
       });
       toast("Success!", {
         description: "You have successfully delete your product",
+        style: { backgroundColor: "#dbf5ec", color: "#10b981" },
       });
     } catch (error) {
       console.error("Edit function failed", error);
     }
-    router.back();
   };
 
   return (

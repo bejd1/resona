@@ -24,17 +24,18 @@ const CartLeft: React.FC<CartLeftProps> = ({ item, totalIndividualPrice }) => {
         <div className="py-4 px-3 md:px-8 flex flex-col sm:flex-row justify-between lg:gap-4 ">
           <Link href={`/products/${id}`} as={`/products/${id}`}>
             <div className="flex gap-4">
-              <Image
-                width="0"
-                height="0"
-                sizes="100vw"
-                priority
-                className="w-3/5 sm:w-[200px] h-auto"
-                src={img}
-                style={{ borderRadius: "8px" }}
-                alt="Product picture"
-                loading="eager"
-              />
+              <div className="sm:w-[230px]">
+                <Image
+                  width={220}
+                  height={220}
+                  quality={100}
+                  priority
+                  src={img}
+                  style={{ width: "100%", height: "100%", borderRadius: "8px" }}
+                  alt={`Product picture ${title}`}
+                  loading="eager"
+                />
+              </div>
               <div>
                 <h2 className="text-sm lg:text-lg font-bold">{title}</h2>
                 <h3 className="text-sm lg:text-lg font-medium">{model}</h3>

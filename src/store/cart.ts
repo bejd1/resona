@@ -78,7 +78,7 @@ export const useCartStore = create<CartStore>()(
       },
       removeAll: () => set({ cart: [] }),
     }),
-    { name: "cartGlobal", storage: createJSONStorage(() => sessionStorage) }
+    { name: "cartGlobal", storage: createJSONStorage(() => localStorage) }
   )
 );
 

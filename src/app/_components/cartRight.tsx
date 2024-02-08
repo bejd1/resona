@@ -20,7 +20,7 @@ const CartRight = ({ totalPrice }: { totalPrice: number }) => {
         </div>
         <Link href="https://buy.stripe.com/test_28o7tu7eVa27cI85kk">
           <Button variant="buttongroup" className="h-10 mt-3 w-full md:w-max">
-            Proceed to Payment Options(prototype)
+            Proceed to Payment(test)
           </Button>
         </Link>
       </Card>

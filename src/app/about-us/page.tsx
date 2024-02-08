@@ -12,7 +12,7 @@ const AboutUs = () => {
     <div className="py-4 md:py-12 px-6 md:px-24 w-full">
       <h1 className="text-2xl md:text-4xl font-extrabold mb-2">About Us</h1>
       <div className="w-full h-[1px] bg-black mb-8 md:mb-16"></div>
-      <div className="flex lg:grid grid-cols-2 gap-10 flex-col">
+      <div className="flex lg:grid grid-cols-2 gap-20 flex-col">
         <div className="tracking-wide">
           <h3 className="text-xl md:text-2xl font-extrabold mb-4">
             Company History "Resona"
@@ -47,7 +47,7 @@ const AboutUs = () => {
         <div>
           <Image
             src={img}
-            width={800}
+            width={700}
             height={100}
             priority={true}
             alt="Production Engineer"

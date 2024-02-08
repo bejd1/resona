@@ -1,15 +1,14 @@
 "use client";
-import React, { useState, useCallback, useEffect, lazy } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import ImageViewer from "react-simple-image-viewer";
-import { CircularProgress } from "@mui/material";
 
-const ImageModal = ({ image }: any) => {
+const ImageModal = ({ image, title }: { title: string; image: any }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const images = [image];
 
-  const openImageViewer = useCallback((index: any) => {
+  const openImageViewer = useCallback((index: number) => {
     setCurrentImage(index);
     setIsViewerOpen(true);
   }, []);
@@ -37,7 +36,7 @@ const ImageModal = ({ image }: any) => {
           width={900}
           style={{ borderRadius: "8px", cursor: "pointer" }}
           priority
-          alt="Product picture"
+          alt={`Product picture ${title} `}
         />
       ))}
       <div className="z-4">

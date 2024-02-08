@@ -28,7 +28,7 @@ const Product = async ({ params }: { params: { id: string } }) => {
         className="px-4 md:px-24 w-full flex flex-col justify-center items-center lg:items-start lg:grid grid-cols-[3fr,3fr] gap-6 lg:gap-10 mb-20 lg:mb-32 overflow-hidden"
       >
         <div className="lg:mt-20 ">
-          <ImageModal image={image} />
+          <ImageModal image={image} title={productData?.title} />
         </div>
         <div className="flex flex-col lg:mt-20 h-full lg:w-4/6 lg:ml-32">
           <h3 className="text-xl md:text-2xl font-medium">
