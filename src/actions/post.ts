@@ -3,7 +3,6 @@
 import { revalidatePath } from "next/cache";
 import prisma from "../app/utils/db";
 import { dataT } from "@/types/types";
-// import { Buffer } from "buffer";
 
 export async function getData(): Promise<dataT[]> {
   const data = await prisma.product.findMany();
@@ -14,7 +13,6 @@ export async function getData(): Promise<dataT[]> {
     model: item.model,
     price: item.price,
     image: item.image as string,
-    // picture: item.picture,
   }));
 }
 
@@ -25,11 +23,6 @@ export async function createProductWithImage(formData: FormData) {
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
     const image = formData.get("image") as string;
-    // const pictureFile = formData.get("picture") as File;
-    // const arrayBuffer = await pictureFile.arrayBuffer();
-    // const buffer = Buffer.from(arrayBuffer);
-
-    revalidatePath("/products");
 
     await prisma.product.create({
       data: {
@@ -38,9 +31,9 @@ export async function createProductWithImage(formData: FormData) {
         description: description,
         price: price,
         image: image,
-        // picture: buffer,
       },
     });
+    revalidatePath("/products");
   } catch (error) {
     console.error("Error creating product from image:", error);
   }
@@ -52,16 +45,8 @@ export async function edit(formData: FormData) {
     const input = formData.get("editTitle") as string;
     const input2 = formData.get("editModel") as string;
     const input3 = formData.get("editDescription") as string;
-    const input4 = parseFloat(formData.get("editprice") as string);
+    const input4 = parseFloat(formData.get("editPrice") as string);
     const input6 = formData.get("editUrl") as string;
-    // const input7 = formData.get("editPicture") as File;
-
-    // let picture: Buffer | undefined;
-
-    // if (input7) {
-    //   const pictureBuffer = await input7.arrayBuffer();
-    //   picture = Buffer.from(pictureBuffer);
-    // }
 
     await prisma.product.update({
       where: {
@@ -73,7 +58,6 @@ export async function edit(formData: FormData) {
         description: input3,
         price: input4,
         image: input6,
-        // picture: picture,
       },
     });
 

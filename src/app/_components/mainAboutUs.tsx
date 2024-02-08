@@ -24,8 +24,8 @@ const MainAboutUs = () => {
       <div className="flex items-center justify-center">
         <Image
           src={img}
-          width={500}
-          height={500}
+          width={400}
+          height={400}
           alt="Speaker Tower"
           priority={true}
           style={{ width: "100%", height: "100%" }}
