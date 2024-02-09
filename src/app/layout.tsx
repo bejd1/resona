@@ -4,9 +4,9 @@ import "./globals.css";
 import Navbar from "./_components/nav";
 import Footer from "./_components/footer";
 import favicon from "./favicon.ico";
-import Scroll from "./_components/scroll";
 import { Toaster } from "@/components/ui/sonner";
 import Provider from "@/app/utils/provider";
+// import Scroll from "./_components/scroll";
 
 const newIcon = favicon.src;
 
@@ -30,7 +30,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href={newIcon} />
       </head>
-      <Scroll />
+      {/* <Scroll /> */}
       <body className={poppins.className}>
         <Provider>
           <div className="sticky top-0 z-[1] bg-white">
