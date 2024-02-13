@@ -1,3 +1,45 @@
+## Resona
+My website is an online store with a wide selection of music equipment. Thanks to the inventory management functionality in Zustand (cart), you can easily add and remove products from your shopping cart. In addition, the site offers full support for user login and registration using AUTH JS, including the traditional method via email and password, as well as login using Google and GitHub accounts.
+
+There are two roles available on the website: admin and user. The administrator can manage products by adding, editing or deleting them as long as he has the appropriate permissions. It is also possible to subscribe to the newsletter, where you can resend the email if necessary.
+
+After completing your purchase, if you are logged in, you can continue shopping or proceed to payment via the Stripe website, where you will fill in your shipping and payment card details. Thanks to this, we ensure convenient and safe online shopping for our customers.
+
+[Live server](https://resona-opal.vercel.app/)
+
+## Key Features:
+- 🔐 Next-auth v5 (Auth.js)
+- 🚀 Next.js 14 with server actions
+- 🔑 Credentials Provider
+- 🌐 OAuth Provider (Social login with Google & GitHub)
+- 👥 User roles (Admin & User)
+- 🔓 Login component
+- 📝 Register component
+- ⚠️ Error component
+- 🎹 Products component
+- 👩‍🔧 Abouts us component
+- 🛒 Cart component
+- 📤 Resend
+- ✉ Newsletter
+- 🔧 Zustand
+- 🔍 Exploring next.js middleware
+- 📈 Extending & Exploring next-auth session
+- 🔄 Exploring next-auth callbacks
+- 👮 currentRole utility
+- 🖥️ Example with server component
+- 💻 Example with client component
+
+Style:
+- Tailwind css
+- Materials UI
+- Shadcn
+
+Database:
+- NeonDB
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
