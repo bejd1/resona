@@ -22,7 +22,7 @@ export const NewsletterEmail = () => (
           src="https://cdn.discordapp.com/attachments/1182760469459632179/1202400548154908722/resona-logo.png?ex=65cd51c6&is=65badcc6&hm=4d7d6af3bc08326b24658e9b6cbd09b5344059010839ff92b906df4d00fb5c0f&"
           width="220"
           height="100"
-          alt="Koala"
+          alt="Logo Resona"
           style={logo}
         />
         <Text style={paragraph}>Hello,</Text>
@@ -31,7 +31,7 @@ export const NewsletterEmail = () => (
           information about our items and news in the store.
         </Text>
         <Section style={btnContainer}>
-          <Button style={button} href="http://localhost:3000/products">
+          <Button style={button} href="https://resona-opal.vercel.app/products">
             Products
           </Button>
         </Section>

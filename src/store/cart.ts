@@ -52,7 +52,7 @@ export const useCartStore = create<CartStore>()(
         const { cart } = get();
         const updatedCart = updateCart(product, cart);
         toast("Success!", {
-          description: "You add product to cart",
+          description: "You add product to the cart",
           style: { backgroundColor: "#dbf5ec", color: "#10b981" },
         });
         set({ cart: updatedCart });
@@ -71,7 +71,7 @@ export const useCartStore = create<CartStore>()(
         const { cart } = get();
         const updatedCart = removeCart(id, cart);
         toast("Success!", {
-          description: "You remove item from cart",
+          description: "You remove item from the cart",
           style: { backgroundColor: "#dbf5ec", color: "#10b981" },
         });
         set({ cart: updatedCart });
