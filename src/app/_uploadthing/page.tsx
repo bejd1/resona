@@ -1,23 +1,22 @@
 "use client";
 
-import { Label } from "@/components/ui/label";
 import { UploadButton } from "../utils/uploadthing";
 
 interface UploadthingButtonProps {
   setUrl: React.Dispatch<React.SetStateAction<string>>;
   setNewKey: React.Dispatch<React.SetStateAction<string>>;
-  setIsImageUploaded: React.Dispatch<React.SetStateAction<boolean>>;
+  setNewUrl: React.Dispatch<React.SetStateAction<string>>;
 }
 const UploadthingButton: React.FC<UploadthingButtonProps> = ({
   setUrl,
   setNewKey,
-  setIsImageUploaded,
+  setNewUrl,
 }) => {
   return (
     <main className="flex flex-col items-center justify-between mb-2">
       <UploadButton
         appearance={{
-          button({ ready, isUploading }) {
+          button() {
             return "bg-blue-700 px-4 hover:bg-blue-600";
           },
           container: "custom-container",
@@ -30,9 +29,9 @@ const UploadthingButton: React.FC<UploadthingButtonProps> = ({
           res.map((f: any) => {
             setUrl(f.url);
             setNewKey(f.key);
+            setNewUrl(f.url);
             return;
           });
-          setIsImageUploaded(true);
         }}
         onUploadError={(error: Error) => {
           alert(`ERROR! ${error.message}`);

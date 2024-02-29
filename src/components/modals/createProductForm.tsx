@@ -9,13 +9,14 @@ import { toast } from "sonner";
 import Loader from "@/app/_components/loader";
 import UploadthingButton from "@/app/_uploadthing/page";
 import Image from "next/image";
+import DeleteImageButton from "@/app/_components/deleteImageButton";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const ref = useRef<HTMLFormElement>(null);
   const [isPending, startTransition] = useTransition();
   const [url, setUrl] = useState<string>("");
+  const [newUrl, setNewUrl] = useState<string>("");
   const [newKey, setNewKey] = useState<string>("");
-  const [isImageUploaded, setIsImageUploaded] = useState<boolean>(false);
 
   const handleCreateSubmit = async (formData: FormData) => {
     try {
@@ -74,44 +75,42 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
             <Label htmlFor="price">Image</Label>
             <Input
               id="image"
+              onChange={(e) => setUrl(e.target.value)}
               value={url}
               placeholder="Url to image"
               name="image"
               className="hidden"
               required
             />
-            <p>{isImageUploaded ? "ADD IMAGE" : "ADD IMAGE"}</p>
-            <p>{url.length === 0 ? "NO IMAGE" : "ADD IMAGE"}</p>
             <div className="mb-4">
               <UploadthingButton
                 setUrl={setUrl}
                 setNewKey={setNewKey}
-                setIsImageUploaded={setIsImageUploaded}
+                setNewUrl={setNewUrl}
               />
             </div>
             <Button
-              disabled={isPending}
+              disabled={isPending || url.length === 0}
               type="submit"
               className="bg-black w-full"
             >
-              <div className="flex flex-col mt-6">
-                {url.length === 0 ? null : (
-                  <div className="relative">
-                    <Image width={200} height={200} src={url} alt="myimg" />
-
-                    {/* <DeleteImageButton
-                setUrl={setUrl}
-                setNewKey={setNewKey}
-                url={url}
-              /> */}
-                  </div>
-                )}
-              </div>
               {isPending ? <Loader text={"Create"} /> : "Create"}
             </Button>
           </div>
         </div>
       </form>
+      <div className="flex flex-col">
+        {url.length === 0 ? null : (
+          <div className="flex items-center justify-center relative mt-3">
+            <Image width={300} height={300} src={url} alt="Uploadthing image" />
+            <DeleteImageButton
+              setUrl={setUrl}
+              setNewKey={setNewKey}
+              url={url}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

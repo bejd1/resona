@@ -1,4 +1,5 @@
-import React, { useTransition } from "react";
+"use client";
+import React, { useState, useTransition } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CardFooter } from "../ui/card";
@@ -10,6 +11,7 @@ import { Divider } from "@mui/material";
 import { Textarea } from "../ui/textarea";
 import { toast } from "sonner";
 import Loader from "@/app/_components/loader";
+import UploadthingButton from "@/app/_uploadthing/page";
 
 interface Props {
   id: EditPropsT["id"];
@@ -18,7 +20,12 @@ interface Props {
 }
 
 const EditProductForm = ({ id, productData, handleClose }: Props) => {
+  const image = productData?.image;
+  // const [url, setUrl] = useState(image);
   const [isPending, startTransition] = useTransition();
+  const [url, setUrl] = useState("");
+  const [newKey, setNewKey] = useState<string>("");
+  const [newUrl, setNewUrl] = useState<string>(() => image || "");
 
   const handleEditSubmit = async (formData: FormData) => {
     try {
@@ -77,20 +84,29 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
               name="editPrice"
               defaultValue={productData?.price}
             />
-            <Label htmlFor="image">Url to image</Label>
+            <Label htmlFor="image">Image</Label>
             <Input
               id="image"
               placeholder="Url to image"
+              value={newUrl}
+              // defaultValue={newUrl}
+              // value={url.length === 0 ? productData?.image || url : undefined}
               name="editUrl"
-              defaultValue={
-                productData?.image !== null ? productData?.image : undefined
-              }
+              onChange={(e) => setUrl(e.target.value)}
             />
-            {/* <Label htmlFor="picture">Picture</Label>
-            <Input id="picture" type="file" name="editPicture" required /> */}
+            {newUrl?.length === 0 ? (
+              <div className="mb-4">
+                <UploadthingButton
+                  setUrl={setUrl}
+                  setNewKey={setNewKey}
+                  setNewUrl={setNewUrl}
+                />
+              </div>
+            ) : null}
+
             <CardFooter className="flex justify-between p-0 w-full">
               <Button
-                disabled={isPending}
+                disabled={isPending || url?.length === 0}
                 type="submit"
                 className="bg-black w-full"
               >
@@ -101,6 +117,9 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
           </div>
         </div>
       </form>
+      <Button className="w-full" onClick={() => setNewUrl("")}>
+        Delete image
+      </Button>
       <div className="mt-2 w-full">
         <DeleteProduct id={id} handleClose={handleClose} />
       </div>
