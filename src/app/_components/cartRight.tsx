@@ -1,12 +1,16 @@
-"use client";
+// "use client";
 
 import React from "react";
 import { IoShieldCheckmark } from "react-icons/io5";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+// import { auth } from "../utils/auth";
 
 const CartRight = ({ totalPrice }: { totalPrice: number }) => {
+  // const session = await auth();
+  // console.log(session);
+
   return (
     <div className="w-full">
       <Card className="p-4">
@@ -20,7 +24,7 @@ const CartRight = ({ totalPrice }: { totalPrice: number }) => {
         </div>
         <Link href="https://buy.stripe.com/test_28o7tu7eVa27cI85kk">
           <Button variant="buttongroup" className="h-10 mt-3 w-full md:w-max">
-            Proceed to Payment(test)
+            Proceed to Payment
           </Button>
         </Link>
       </Card>

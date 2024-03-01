@@ -114,10 +114,7 @@ const RegisterForm = () => {
         <FormItem>
           <FormLabel>
             Have an account?
-            <Link
-              className="ml-1 hover:underline ease-in duration-100"
-              href="/login"
-            >
+            <Link className="ml-1 underline ease-in duration-100" href="/login">
               Sign In
             </Link>
           </FormLabel>

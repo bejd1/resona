@@ -5,8 +5,8 @@ import img from "../../img/newsletterImg.jpg";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { send } from "@/actions/sendNewsletter";
-import { toast } from "sonner";
 import Loader from "./loader";
+import { useToast } from "@/components/ui/use-toast";
 
 const Newsletter = () => {
   const [email, setEmail] = useState<string>("");
@@ -17,6 +17,7 @@ const Newsletter = () => {
     "Success, you have subscribed to the newsletter"
   );
   const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,15 +28,17 @@ const Newsletter = () => {
         if (!data.error) {
           setEmail("");
           setSuccess(data.success);
-          toast("Success!", {
+          toast({
+            title: "Success!",
             description: success,
-            style: { backgroundColor: "#dbf5ec", color: "#10b981" },
+            variant: "success",
           });
         } else {
           setError(data.error);
-          toast("Error", {
+          toast({
+            title: "Error!",
             description: error,
-            style: { backgroundColor: "#fde3e3", color: "#f14444" },
+            variant: "destructive",
           });
         }
       });

@@ -1,7 +1,11 @@
 import CreateProductModal from "../_components/createModal";
 import { auth } from "../utils/auth";
 import ProductItems from "../_components/productItems";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Products",
+};
 const Products = async () => {
   const session = await auth();
 

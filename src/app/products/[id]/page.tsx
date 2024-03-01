@@ -7,6 +7,11 @@ import AddToCartButton from "@/app/_components/addToCartButton";
 import NotFound from "@/app/not-found";
 import Newsletter from "@/app/_components/newsletter";
 import ImageModal from "@/app/_components/imageModal";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Product details",
+};
 
 const Product = async ({ params }: { params: { id: string } }) => {
   const session = await auth();

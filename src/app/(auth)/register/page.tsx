@@ -1,7 +1,12 @@
 import { auth } from "@/app/utils/auth";
 import { RegisterCard } from "@/components/auth/registerPage";
+import { Metadata } from "next";
 import { redirect } from "next/navigation";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Join to Resona",
+};
 
 const Login = async () => {
   const session = await auth();

@@ -95,7 +95,7 @@ const LoginForm = () => {
           <FormLabel>
             Don't have an account?
             <Link
-              className="ml-1 hover:underline ease-in duration-100"
+              className="ml-1 underline ease-in duration-100"
               href="/register"
             >
               Create it

@@ -5,11 +5,11 @@ import { Label } from "@/components/ui/label";
 import { Button } from "../ui/button";
 import { createProductWithImage } from "@/actions/post";
 import { Textarea } from "../ui/textarea";
-import { toast } from "sonner";
 import Loader from "@/app/_components/loader";
 import UploadthingButton from "@/app/_uploadthing/page";
 import Image from "next/image";
 import DeleteImageButton from "@/app/_components/deleteImageButton";
+import { useToast } from "../ui/use-toast";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const ref = useRef<HTMLFormElement>(null);
@@ -17,6 +17,7 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const [url, setUrl] = useState<string>("");
   const [newUrl, setNewUrl] = useState<string>("");
   const [newKey, setNewKey] = useState<string>("");
+  const { toast } = useToast();
 
   const handleCreateSubmit = async (formData: FormData) => {
     try {
@@ -25,11 +26,12 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
       startTransition(() => {
         handleClose();
       });
-      toast("Success!", {
-        description: "You have successfully create your product",
-        style: { backgroundColor: "#dbf5ec", color: "#10b981" },
-      });
       ref.current?.reset();
+      return toast({
+        title: "Success!",
+        description: "You have successfully create your product",
+        variant: "success",
+      });
     } catch (error) {
       console.error("Edit function failed", error);
     }

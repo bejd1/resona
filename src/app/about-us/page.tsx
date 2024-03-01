@@ -4,7 +4,7 @@ import img from "../../img/about-us-img.jpg";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Resona - About us",
+  title: "About us",
 };
 
 const AboutUs = () => {

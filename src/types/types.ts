@@ -33,3 +33,10 @@ export interface Product {
   price: number;
   image: string;
 }
+
+export type SiteConfigT = {
+  name: string;
+  url: string;
+  description: string;
+  links: { github: string };
+};

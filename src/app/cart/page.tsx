@@ -1,7 +1,10 @@
-"use client";
-
 import React from "react";
 import CartPage from "../_components/cartPage";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Cart",
+};
 
 const Cart = () => {
   return (

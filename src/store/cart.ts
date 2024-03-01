@@ -1,4 +1,4 @@
-import { toast } from "sonner";
+import { toast, useToast } from "@/components/ui/use-toast";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 
@@ -51,10 +51,6 @@ export const useCartStore = create<CartStore>()(
       add: (product: Product) => {
         const { cart } = get();
         const updatedCart = updateCart(product, cart);
-        toast("Success!", {
-          description: "You add product to the cart",
-          style: { backgroundColor: "#dbf5ec", color: "#10b981" },
-        });
         set({ cart: updatedCart });
       },
       increase: (id: string) => {
@@ -70,10 +66,10 @@ export const useCartStore = create<CartStore>()(
       remove: (id: string) => {
         const { cart } = get();
         const updatedCart = removeCart(id, cart);
-        toast("Success!", {
-          description: "You remove item from the cart",
-          style: { backgroundColor: "#dbf5ec", color: "#10b981" },
-        });
+        // toast("Success!", {
+        //   description: "You remove item from the cart",
+        //   style: { backgroundColor: "#dbf5ec", color: "#10b981" },
+        // });
         set({ cart: updatedCart });
       },
       removeAll: () => set({ cart: [] }),

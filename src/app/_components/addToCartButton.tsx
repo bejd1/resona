@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Product, useCartStore } from "@/store/cart";
 import React, { useTransition } from "react";
 import Loader from "./loader";
+import { useToast } from "@/components/ui/use-toast";
 
 const AddToCartButton: React.FC<Product> = ({
   id,
@@ -15,9 +16,16 @@ const AddToCartButton: React.FC<Product> = ({
   const { add: handleAddToCart } = useCartStore();
   const product = { id, image, title, description, price, model } as Product;
   const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
 
   const handleEditSubmit = async () => {
     await startTransition(() => {});
+
+    return toast({
+      title: "Success!",
+      description: "You add product to the cart",
+      variant: "success",
+    });
   };
 
   return (

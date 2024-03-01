@@ -9,9 +9,9 @@ import { edit } from "@/actions/post";
 import { EditPropsT } from "@/types/types";
 import { Divider } from "@mui/material";
 import { Textarea } from "../ui/textarea";
-import { toast } from "sonner";
 import Loader from "@/app/_components/loader";
 import UploadthingButton from "@/app/_uploadthing/page";
+import { useToast } from "../ui/use-toast";
 
 interface Props {
   id: EditPropsT["id"];
@@ -21,11 +21,11 @@ interface Props {
 
 const EditProductForm = ({ id, productData, handleClose }: Props) => {
   const image = productData?.image;
-  // const [url, setUrl] = useState(image);
   const [isPending, startTransition] = useTransition();
   const [url, setUrl] = useState("");
   const [newKey, setNewKey] = useState<string>("");
   const [newUrl, setNewUrl] = useState<string>(() => image || "");
+  const { toast } = useToast();
 
   const handleEditSubmit = async (formData: FormData) => {
     try {
@@ -34,9 +34,10 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
       startTransition(() => {
         handleClose();
       });
-      toast("Success!", {
+      return toast({
+        title: "Success!",
         description: "You have successfully updated your product",
-        style: { backgroundColor: "#dbf5ec", color: "#10b981" },
+        variant: "success",
       });
     } catch (error) {
       console.error("Edit function failed", error);
@@ -89,8 +90,7 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
               id="image"
               placeholder="Url to image"
               value={newUrl}
-              // defaultValue={newUrl}
-              // value={url.length === 0 ? productData?.image || url : undefined}
+              className="hidden"
               name="editUrl"
               onChange={(e) => setUrl(e.target.value)}
             />
