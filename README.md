@@ -28,6 +28,7 @@ After completing your purchase, if you are logged in, you can continue shopping 
 - 👮 currentRole utility
 - 🖥️ Example with server component
 - 💻 Example with client component
+- 📁  Uploadthing
 
 Style:
 - Tailwind css
@@ -37,7 +38,17 @@ Style:
 Database:
 - NeonDB
 
+## Photos
 
+
+### Create post
+![](https://utfs.io/f/e62af248-ed49-46ac-841a-433d567a2830-md4cuc.png)
+
+### Edit post
+![](https://utfs.io/f/60095b1e-0663-4737-8873-493a07fc9ff7-1umfe.png)
+
+### Email from newsletter
+![](https://utfs.io/f/3abb40e0-a77a-41ab-8f1a-2892bd244311-1liw0s.png)
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
