@@ -106,7 +106,7 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
 
             <CardFooter className="flex justify-between p-0 w-full">
               <Button
-                disabled={isPending || url?.length === 0}
+                disabled={isPending}
                 type="submit"
                 className="bg-black w-full"
               >

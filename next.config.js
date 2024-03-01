@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // experimental: {
-  //   serverActions: true,
-  // },
+  experimental: {
+    serverComponentsExternalPackages: ["bcrypt"],
+  },
   images: {
     domains: [
       "cdn.discordapp.com",

@@ -34,7 +34,7 @@ const ImageModal = ({ image, title }: { title: string; image: any }) => {
           key={index}
           height={700}
           width={900}
-          style={{ borderRadius: "8px", cursor: "pointer" }}
+          className="rounded-lg cursor-pointer object-cover sm:h-[800px] sm:w-[900px]"
           priority
           alt={`Product picture ${title} `}
         />

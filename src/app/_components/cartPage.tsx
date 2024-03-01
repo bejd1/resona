@@ -9,7 +9,12 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingData from "./loadingData";
 import ErrorData from "./errorData";
 
-const CartPage = () => {
+interface Session {
+  user: string;
+  token: string;
+}
+
+const CartPage = ({ session }: any) => {
   const { cart, totalCartPrice, totalIndividualPrice } = useCartStore();
   const totalPrice = totalCartPrice();
 
@@ -45,7 +50,7 @@ const CartPage = () => {
               );
             })}
             <div className="lg:absolute lg:top-0 lg:right-0 lg:w-[27%]">
-              <CartRight totalPrice={totalPrice} />
+              <CartRight session={session} totalPrice={totalPrice} />
             </div>
           </div>
           <ContinueCart />

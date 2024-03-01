@@ -19,7 +19,7 @@ const ProductCart = ({ items }: { items: dataT }) => {
               height={200}
               style={{ borderRadius: "8px" }}
               priority
-              className="lg:h-[600px] md:object-cover"
+              className="max-h-[280px] min-h-[280px] sm:max-h-[600px] lg:h-[600px] object-cover"
               alt={`Product picture ${title} `}
             />
           </div>

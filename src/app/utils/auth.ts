@@ -4,8 +4,8 @@ import Google from "@auth/core/providers/google";
 import Credentials from "next-auth/providers/credentials";
 import { LoginSchema } from "@/schemas";
 import { getUserByEmail, getUserById } from "@/lib/getUser";
-import bcrypt from "bcrypt";
 import { JWT } from "@auth/core/jwt";
+// import bcrypt from "bcrypt";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   callbacks: {
@@ -48,6 +48,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           const user = await getUserByEmail(email);
           if (!user || !user.password) return null;
 
+          const bcrypt = require("bcrypt");
           const passwordsMatch = await bcrypt.compare(password, user.password);
 
           if (passwordsMatch) return user;

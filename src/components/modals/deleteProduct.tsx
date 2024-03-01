@@ -2,6 +2,8 @@ import React, { useTransition } from "react";
 import { Button } from "../ui/button";
 import { deleteItem } from "@/actions/post";
 import { useToast } from "../ui/use-toast";
+import { useRouter } from "next/navigation";
+
 const DeleteProduct = ({
   id,
   handleClose,
@@ -11,6 +13,7 @@ const DeleteProduct = ({
 }) => {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleDeleteSubmit = async (formData: FormData) => {
     try {
@@ -19,7 +22,8 @@ const DeleteProduct = ({
       startTransition(() => {
         handleClose();
       });
-      return toast({
+      router.push("/products");
+      toast({
         title: "Success!",
         description: "You remove product",
         variant: "success",

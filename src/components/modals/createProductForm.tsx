@@ -10,6 +10,8 @@ import UploadthingButton from "@/app/_uploadthing/page";
 import Image from "next/image";
 import DeleteImageButton from "@/app/_components/deleteImageButton";
 import { useToast } from "../ui/use-toast";
+import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const ref = useRef<HTMLFormElement>(null);
@@ -18,6 +20,7 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
   const [newUrl, setNewUrl] = useState<string>("");
   const [newKey, setNewKey] = useState<string>("");
   const { toast } = useToast();
+  const router = useRouter();
 
   const handleCreateSubmit = async (formData: FormData) => {
     try {
@@ -27,7 +30,13 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
         handleClose();
       });
       ref.current?.reset();
-      return toast({
+      router.refresh();
+      router.push("/");
+      setTimeout(() => {
+        router.push("/products");
+      }, 500);
+
+      toast({
         title: "Success!",
         description: "You have successfully create your product",
         variant: "success",

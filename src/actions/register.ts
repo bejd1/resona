@@ -2,8 +2,8 @@
 
 import * as z from "zod";
 import { RegisterSchema } from "@/schemas";
-import bcrypt from "bcrypt";
 import db from "../app/utils/db";
+// import bcrypt from "bcrypt";
 
 export const register = async (values: z.infer<typeof RegisterSchema>) => {
   // Validate input using the RegisterSchema
@@ -17,6 +17,7 @@ export const register = async (values: z.infer<typeof RegisterSchema>) => {
   const { name, email, password } = validateFields.data;
 
   // Hash the password using bcrypt
+  const bcrypt = require("bcrypt");
   const hashedPassword = await bcrypt.hash(password, 10);
 
   // Check if the user with the provided email already exists
