@@ -5,9 +5,8 @@ import { IoShieldCheckmark } from "react-icons/io5";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { auth } from "../utils/auth";
 
-interface Session {
+interface SessionI {
   user: string;
   token: string;
 }
@@ -17,7 +16,7 @@ const CartRight = ({
   session,
 }: {
   totalPrice: number;
-  session: Session;
+  session: SessionI;
 }) => {
   return (
     <div className="w-full">

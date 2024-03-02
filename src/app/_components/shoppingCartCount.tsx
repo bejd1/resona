@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const ShoppingCartCount = ({ count }: any) => {
+type CountFunction = () => number;
+
+const ShoppingCartCount = ({ count }: { count: CountFunction }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {

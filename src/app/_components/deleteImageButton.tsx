@@ -9,11 +9,11 @@ interface DeleteImageButtonProps {
   url: string;
 }
 
-const DeleteImageButton: React.FC<DeleteImageButtonProps> = ({
+const DeleteImageButton = ({
   setUrl,
   setNewKey,
   url,
-}) => {
+}: DeleteImageButtonProps) => {
   const deleteImage = async () => {
     try {
       await axios.delete("api/uploadthing", {

@@ -13,7 +13,7 @@ interface CartLeftProps {
   totalIndividualPrice: (id: string) => number;
 }
 
-const CartLeft: React.FC<CartLeftProps> = ({ item, totalIndividualPrice }) => {
+const CartLeft = ({ item, totalIndividualPrice }: CartLeftProps) => {
   const { title, model, image, id, count, price } = item;
   const img = image?.toString() ?? "/default-image.jpg";
   const itemPrice = id ? totalIndividualPrice(id) : 0;

@@ -9,7 +9,7 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingData from "./loadingData";
 import ErrorData from "./errorData";
 
-interface Session {
+interface SessionI {
   user: string;
   token: string;
 }

@@ -2,12 +2,20 @@ import CreateProductModal from "../_components/createModal";
 import { auth } from "../utils/auth";
 import ProductItems from "../_components/productItems";
 import { Metadata } from "next";
+import ProductsBar from "../_components/productsBar";
 
 export const metadata: Metadata = {
   title: "Products",
 };
-const Products = async () => {
+const Products = async ({
+  searchParams,
+}: {
+  searchParams?: {
+    category?: string;
+  };
+}) => {
   const session = await auth();
+  const query = searchParams?.category || "";
 
   return (
     <div className="py-4 md:py-12 px-6 md:px-24 w-full">
@@ -18,8 +26,9 @@ const Products = async () => {
         {session?.user.role !== "ADMIN" ? null : <CreateProductModal />}
       </div>
       <div className="w-full h-[1px] bg-black mb-8 md:mb-16"></div>
+      <ProductsBar />
       <div className="flex md:grid flex-col lg:flex-wrap gap-10 cursor-pointer grid-cols-2 lg:px-4">
-        <ProductItems />
+        <ProductItems query={query} />
       </div>
     </div>
   );

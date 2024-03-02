@@ -9,10 +9,8 @@ import Loader from "./loader";
 import { useToast } from "@/components/ui/use-toast";
 
 const Newsletter = () => {
-  const [email, setEmail] = useState<string>("");
-  const [error, setError] = useState<string | undefined>(
-    "Email already in use"
-  );
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("Email already in use");
   const [success, setSuccess] = useState<string | undefined>(
     "Success, you have subscribed to the newsletter"
   );

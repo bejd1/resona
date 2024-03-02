@@ -3,7 +3,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import ImageViewer from "react-simple-image-viewer";
 
-const ImageModal = ({ image, title }: { title: string; image: any }) => {
+const ImageModal = ({ image, title }: { title: string; image: string }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const images = [image];
@@ -32,8 +32,8 @@ const ImageModal = ({ image, title }: { title: string; image: any }) => {
           onClick={() => openImageViewer(index)}
           src={src}
           key={index}
-          height={700}
-          width={900}
+          height={801}
+          width={901}
           className="rounded-lg cursor-pointer object-cover sm:h-[800px] sm:w-[900px]"
           priority
           alt={`Product picture ${title} `}

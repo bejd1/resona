@@ -4,9 +4,10 @@ import Modal from "@mui/material/Modal";
 import { FaRegEdit } from "react-icons/fa";
 import { EditProduct } from "@/components/modals/editCard";
 import { EditPropsT } from "@/types/types";
+import { useState } from "react";
 
 export default function EditProductModal({ id, productData }: EditPropsT) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 

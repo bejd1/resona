@@ -6,7 +6,7 @@ import ProductCart from "./productCart";
 import LoadingData from "./loadingData";
 import ErrorData from "./errorData";
 
-const ProductItems = () => {
+const ProductItems = ({ query }: { query: string }) => {
   const {
     data: products,
     isLoading,
