@@ -83,6 +83,13 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
               name="price"
               required
             />
+            <Label htmlFor="category">Category</Label>
+            <Input
+              id="category"
+              placeholder="Category"
+              name="category"
+              required
+            />
             <Label htmlFor="price">Image</Label>
             <Input
               id="image"
@@ -90,7 +97,7 @@ const CreateProductForm = ({ handleClose }: { handleClose: () => void }) => {
               value={url}
               placeholder="Url to image"
               name="image"
-              className="hidden"
+              // className="hidden"
               required
             />
             <div className="mb-4">

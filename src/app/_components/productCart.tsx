@@ -6,7 +6,7 @@ import Link from "next/link";
 import { dataT } from "@/types/types";
 
 const ProductCart = ({ items }: { items: dataT }) => {
-  const { id, title, model, price, image } = items;
+  const { id, title, model, price, image, category } = items;
 
   return (
     <div key={id}>

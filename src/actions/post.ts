@@ -12,6 +12,7 @@ export async function getData(): Promise<dataT[]> {
     description: item.description,
     model: item.model,
     price: item.price,
+    category: item.category,
     image: item.image as string,
   }));
 }
@@ -22,6 +23,7 @@ export async function createProductWithImage(formData: FormData) {
     const model = formData.get("model") as string;
     const description = formData.get("description") as string;
     const price = parseFloat(formData.get("price") as string);
+    const category = formData.get("category") as string;
     const image = formData.get("image") as string;
 
     await prisma.product.create({
@@ -30,6 +32,7 @@ export async function createProductWithImage(formData: FormData) {
         model: model,
         description: description,
         price: price,
+        category: category,
         image: image,
       },
     });
@@ -41,23 +44,25 @@ export async function createProductWithImage(formData: FormData) {
 
 export async function edit(formData: FormData) {
   try {
-    const inputId = formData.get("inputId") as string;
-    const input = formData.get("editTitle") as string;
-    const input2 = formData.get("editModel") as string;
-    const input3 = formData.get("editDescription") as string;
-    const input4 = parseFloat(formData.get("editPrice") as string);
-    const input6 = formData.get("editUrl") as string;
+    const id = formData.get("inputId") as string;
+    const title = formData.get("editTitle") as string;
+    const model = formData.get("editModel") as string;
+    const description = formData.get("editDescription") as string;
+    const price = parseFloat(formData.get("editPrice") as string);
+    const category = formData.get("category") as string;
+    const image = formData.get("editUrl") as string;
 
     await prisma.product.update({
       where: {
-        id: inputId,
+        id: id,
       },
       data: {
-        title: input,
-        model: input2,
-        description: input3,
-        price: input4,
-        image: input6,
+        title: title,
+        model: model,
+        description: description,
+        price: price,
+        category: category,
+        image: image,
       },
     });
 

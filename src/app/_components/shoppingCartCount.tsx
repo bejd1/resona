@@ -11,6 +11,7 @@ const ShoppingCartCount = ({ count }: { count: CountFunction }) => {
   }, []);
 
   if (!isMounted) return;
+
   return (
     <div className="flex items-center justify-center">
       {count() === 0 ? null : (

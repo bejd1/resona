@@ -50,7 +50,7 @@ model Product {
   description   String
   price         Float
   image         String?
-  picture       Bytes?
+  category      String
 }
 
 model Newsletter {

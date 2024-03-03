@@ -5,7 +5,7 @@ export type dataT = {
   model: string | undefined;
   price: number | undefined;
   image: string | undefined;
-  picture?: Buffer | null;
+  category?: string | undefined;
 };
 
 export type EditPropsT = {
@@ -15,8 +15,8 @@ export type EditPropsT = {
     model: string;
     description: string;
     price: number;
+    category?: string;
     image: string | null;
-    picture?: Buffer | null;
   } | null;
   id: string | undefined;
 };

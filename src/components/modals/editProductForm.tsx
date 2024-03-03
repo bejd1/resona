@@ -85,6 +85,14 @@ const EditProductForm = ({ id, productData, handleClose }: Props) => {
               name="editPrice"
               defaultValue={productData?.price}
             />
+            <Label htmlFor="category">Category</Label>
+            <Input
+              id="category"
+              placeholder="Category"
+              name="category"
+              defaultValue={productData?.category}
+              required
+            />
             <Label htmlFor="image">Image</Label>
             <Input
               id="image"
