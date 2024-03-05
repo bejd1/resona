@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -20,30 +20,43 @@ const SelectSortProducts = ({
   productsButton: productsButtonI[];
 }) => {
   const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const [category, setCategory] = useState("");
 
-  const handleClick = (href: string) => {
+  const handleClick = (href: string, name: string) => {
+    setIsOpen(false);
+    setCategory(name);
     router.push(`/products?category=${href}`);
+  };
+
+  const handleSelectTriggerClick = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <div>
       <Select>
-        <SelectTrigger className="w-full sm:w-[180px]">
-          <SelectValue placeholder="Category" />
+        <SelectTrigger
+          className="w-full sm:w-[180px]"
+          onClick={handleSelectTriggerClick}
+        >
+          <SelectValue placeholder={`${category}`} />
         </SelectTrigger>
-        <SelectContent>
-          <MenuItem onClick={() => handleClick("")}>All</MenuItem>
+        {isOpen && (
+          <SelectContent>
+            <MenuItem onClick={() => handleClick("", "All")}>All</MenuItem>
 
-          {productsButton.map((item, index) => (
-            <MenuItem
-              key={index}
-              value={item.href}
-              onClick={() => handleClick(item.href)}
-            >
-              <p>{item.name}</p>
-            </MenuItem>
-          ))}
-        </SelectContent>
+            {productsButton.map((item, index) => (
+              <MenuItem
+                key={index}
+                value={item.href}
+                onClick={() => handleClick(item.href, item.name)}
+              >
+                <p>{item.name}</p>
+              </MenuItem>
+            ))}
+          </SelectContent>
+        )}
       </Select>
     </div>
   );
