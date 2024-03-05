@@ -1,8 +1,7 @@
 import CreateProductModal from "../_components/createModal";
 import { auth } from "../utils/auth";
-import ProductItems from "../_components/productItems";
+import ProductItems from "../_components/productData";
 import { Metadata } from "next";
-import ProductsBar from "../_components/productsBar";
 
 export const metadata: Metadata = {
   title: "Products",
@@ -18,16 +17,16 @@ const Products = async ({
   const query = searchParams?.category || "";
 
   return (
-    <div className="py-4 md:py-12 px-6 md:px-24 w-full">
+    <div className="py-4 md:py-12 px-6 md:px-16 lg:px-20 w-full">
       <div className="flex justify-between items-center mb-2">
         <h1 className="flex items-center text-2xl md:text-4xl font-extrabold">
           Our Products
         </h1>
         {session?.user.role !== "ADMIN" ? null : <CreateProductModal />}
       </div>
-      <div className="w-full h-[1px] bg-black mb-8 md:mb-16"></div>
-      <ProductsBar />
-      <div className="flex md:grid flex-col lg:flex-wrap gap-10 cursor-pointer grid-cols-2 lg:px-4">
+      <div className="w-full h-[1px] bg-black mb-8"></div>
+
+      <div className="min-h-screen">
         <ProductItems query={query} />
       </div>
     </div>

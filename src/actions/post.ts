@@ -4,8 +4,33 @@ import { revalidatePath } from "next/cache";
 import prisma from "../app/utils/db";
 import { dataT } from "@/types/types";
 
-export async function getData(): Promise<dataT[]> {
-  const data = await prisma.product.findMany();
+export async function getData(
+  category: string,
+  sortOrder: string
+): Promise<dataT[]> {
+  let whereClause = {};
+  if (category) {
+    whereClause = {
+      category: category,
+    };
+  }
+
+  let orderByClause = {};
+  if (sortOrder === "asc") {
+    orderByClause = {
+      price: "asc",
+    };
+  } else if (sortOrder === "desc") {
+    orderByClause = {
+      price: "desc",
+    };
+  }
+
+  const data = await prisma.product.findMany({
+    where: whereClause,
+    orderBy: orderByClause,
+  });
+
   return data.map((item) => ({
     id: item.id,
     title: item.title,
